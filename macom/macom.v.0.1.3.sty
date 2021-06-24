@@ -1,0 +1,465 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	macom.sty
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Licença LPPL ( LaTeX Project Public License )
+%%	Esta licença diz basicamente que se você editar o código desta classe,
+%%	mesmo que localmente (no seu micro), você DEVERÁ RENOMEAR o arquivo da
+%%	classe.
+%%
+%%	Classe para confecção de monografias, dissertações ou teses de acordo
+%%	com as nomas da Associação Brasileira de Normas Técnicas (ABNT).
+%%
+%%	Autor: Wagner Baptista Vicente
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Controle de versão
+%%
+%%	Versão: 0.0.1 - 01/05/2013 - ID: v0.0.1
+%%	The file this class.
+%%
+%%	Versão: 0.0.2 - 19/06/2014 - ID: v0.0.2
+%%	Create default page style to Balaustre.
+%%
+%%	Versão: 0.0.3 - 03/06/2015 - ID: v0.0.3
+%%	Add the utilization of acronym.
+%%
+%%	Versão: 0.0.4 - 14/06/2015 - ID: v0.0.4
+%%	Include a conditional "ifx" on command definition "\Ir#1"
+%%
+%%	Versão: 0.0.5 - 10/07/2015 - ID: v0.0.5
+%%	Inclusão dos padrões da loja capitular "Ricardo Bloise"
+%%
+%%	Versão: 0.0.6 - 12/08/2015 - ID: v0.0.6
+%%	Reorganização das definições no arquivo com limpeza dos comentarios.
+%%
+%%	Versão: 0.0.7 - 10/10/2015 - ID: v0.0.7
+%%	Improve definitions to \Ir and \IIr
+%%
+%%	Versão: 0.0.9 - 07/10/2015 - ID: v0.0.9
+%%	Criação de definições para o Supremo Conselho e Cap. Ricardo Bloise.
+%%
+%%	Versão: 0.1.0 -15/06/2017 - ID: v0.1.0
+%%	Criação de definições para ARLS Danylo Jose Fernandes
+%%
+%%	Versão: 0.1.1 - 28/01/2018 - ID: v0.1.1
+%%	Criação do parametros de definição do corpo filosófico
+%%
+%%	Versão: 0.1.2 - 11/03/2018 - ID: v0.1.2
+%%	Criação do definições para o Ilmo Conselho Kadosch "Jose Caccaos"
+%%
+%%	Versão: 0.1.3 - 22/09/2018 - ID: v0.1.3
+%%	Implantação do tratamento maçonico.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Identificação da classe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]%%
+\ProvidesClass{macom}[2013/05/01 v.0.0.1 - Macom LaTeX document class]%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\RequirePackage{xstring}%%
+%%
+\RequirePackage[nolist]{acronym}%%	% V.0.0.3.n
+%%
+\RequirePackage{color}%%		% v0.0.5.n
+%%
+\RequirePackage{cjhebrew}%%
+%%
+\RequirePackage[table]{xcolor}%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes gerais maconicas
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\def\SM#1{\StrSubstitute{#1}{.}{\raise.15ex\hbox{$\therefore$}}}%%
+%%
+\def\TheGADU{\SM{G.A.D.U.}}%%
+%%
+\def\TheAUTOSAG{\SM{A.U.T.O.S.A.G.}}%%	v0.0.5.n
+%%
+\def\TheREAA{\SM{R.E.A.A.}}%%
+%%
+\def\TheGOP{\SM{G.O.P.}}%%
+%%
+%% v.0.0.7.sn
+\def\IrAcronym#1{%%
+	\expandafter\ifx\csname AC@#1\endcsname\AC@used%%
+		\acs{#1}%%
+	\else%%
+		\AC@placelabel{#1}\acl{#1}%%
+	\fi%%
+}%%
+%% v0.1.3.sn
+%% Definition
+%%  1 ao 02 = Irmão
+%%       03 = Venerável Irmão
+%%  4 ao 18 = Respeitável Irmão
+%% 19 ao 32 = Mui Respeitável Irmão
+%%       33 = Poderoso Irmão
+\def\TheMansoryTitle#1{%%
+\ifnum#1>18%%
+	\ifnum#1>32%%
+		Poderoso%%
+	\else%%
+		Mui Respeitável%%
+	\fi%%
+\else%%
+	\ifnum#1>3%%
+		Respeitável%%
+	\fi%%
+\fi%%
+~\SM{Ir.}%%
+}%%
+\def\Ir{\secdef\@mIr\@sIr}%%
+%%
+\def\@mIr[#1]#2{%%
+	\IfStrEq{#1}{#2}{}{\TheMansoryTitle{#1}}%%
+	~\IrAcronym{#2}%%
+	\IfStrEq{#1}{#2}{}{~#1\SM{.}}%%
+}%%
+%%
+\def\@sIr[#1]#2{%%
+	\ifx&#1&%%
+	\else%%
+		\IfStrEq{#1}{#2}{}{\TheMansoryTitle{#1}}%%
+		~#2%%
+		\IfStrEq{#1}{#2}{}{~#1\SM{.}}%%
+	\fi%%
+}%%
+%% v0.1.3.en
+%%
+%\def\Ir{\SM{Ir.}\secdef\@mIr\@sIr}%%
+%% v0.1.3.so
+%\def\Ir{%%%
+%\SM{Ir.}\secdef\@mIr\@sIr}%%
+%%
+%\def\@mIr[#1]#2{%%
+%	~\IrAcronym{#2}%%
+%	%\IfStrEq{x}{x}{true}{false}
+%	\IfStrEq{#1}{#2}{}{~#1\SM{.}}%%
+%}%%
+%%
+%\def\@sIr#1{\ifx&#1&\else ~ #1\fi}%%
+%% v0.1.3.eo
+%%
+%%	IIr DEFINITIONS
+%%
+\newcount\@MaxLen%%
+\newcount\@ItemAtual%%
+%%
+\def\IIr#1{\SM{IIr.}%%
+	\ifx&#1&\else ~ \fi%%
+	\@MaxLen\z@%%
+	\@ItemAtual\z@%%
+	\@for\@aux:=#1\do{\advance\@MaxLen\@ne}%%
+	\def\strAnd{~e~}%%
+	\def\strComma{,~}%%
+	\def\NextIr{\def\NextIr{\ifnum\the\@MaxLen=\the\@ItemAtual\strAnd\else\strComma\fi}}%%
+	\@for\@ir:=#1\do{\advance\@ItemAtual\@ne\NextIr\IrAcronym\@ir}%%
+}%%
+%% v.0.0.7.en
+%% v.0.0.8.sn
+\def\VenIr{\SM{Ven.~Ir.}\secdef\@mIr\@sIr}%%
+%% v.0.0.8.en
+%%
+\def\TheVM{\SM{V.M.}}%%
+%%
+\def\TheRespeitab{\SM{Respeitab.M.}}%%
+%%
+\def\TheTVPM{\SM{T.V.P.M.}}%%
+%%
+\def\TheVig#1{\Ir*{#1º~ \SM{Vig.}}}%%
+%%
+\def\TheDiac#1{\Ir*{#1º~ \SM{Diac.}}}%%
+%%
+% \def\TheJob#1{\noindent{\bfseries Trabalho :} #1\vskip 5mm}%%
+\def\TheJob#1{\noindent{\fontsize{13}{1}\selectfont{\bfseries Trabalho :} #1}\vskip 5mm}%%
+%%
+\def\TheExtraJob#1{\noindent{\bfseries Trabalho de quarto de hora :} #1\vskip 5mm}%%
+%%
+\def\TFA{\SM{T.F.A.}}%%
+%%
+%% v.0.0.7.so
+% %% v.0.0.4.sn
+% \def\Ir#1{\SM{Ir.}\ifx&#1&\else ~ #1\fi}%%
+% \def\IrF#1{\SM{Ir.}~ \acl{#1}}%%
+% \def\IrS#1{\SM{Ir.}~ \acs{#1}}%%
+% %% v.0.0.4.en
+% \def\IIr{\SM{IIr.}}%%
+%% v.0.0.7.eo
+%%
+\def\TheSFU{\noindent\begin{center}\SM{F.}\vskip 3mm\SM{S.}\hskip 6.93mm\SM{U.}\end{center}}%%
+%%
+\def\TheSSS{\noindent\begin{center}\SM{S.}\vskip 3mm\SM{S.}\hskip 6.93mm\SM{S.}\end{center}}%%
+%%
+\def\TheLuxExTenebris{\noindent\begin{center}\aspas{\sc Lux ex Tenebris}\end{center}}%%
+%%
+\def\TheOrdoAbChao{\noindent\begin{center}\aspas{\sc Ordo Ab Chao}\end{center}}%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes da Loja Simbolica - Apóstolos Paulistas
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+% \def\TheApostolosPaulistasAcron{\SM{A.R.L.S.G.Benf.}}%%
+\def\TheApostolosPaulistasAcron{\SM{Aug.~e Resp.~Gr.~Benf.~Loj.~Simb.}}%%
+%%
+\def\TheApostolosPaulistasName{Apóstolos Paulistas}%%
+%%
+\def\TheApostolosPaulistasNumber{nº 91}%%
+%%
+\def\TheApostolosPaulistasImage{\includegraphics[width=25mm]{images/arls-ap.png}}%%
+%%
+% \def\TheAddressStore{Rua Doutor Olavo Egídio, nº 185}%%
+%%
+\def\TheApostolosPaulistasHeader{%%
+	{\fontsize{12}{1}\selectfont%%
+		\TheApostolosPaulistasAcron~\TheApostolosPaulistasName~-~\TheApostolosPaulistasNumber%%
+	}\vskip 5mm%%
+	{\fontsize{10}{1}\selectfont%%
+		Filiada ao~ Grande~ Oriente~ Paulista - \negrito{GOP}\vskip 0.1mm%%
+		Integrante da Confederação Maçônica do Brasil - \negrito{COMAB}%%
+	}%%
+}%%
+\def\TheApostolosPaulistasAddress{%%
+	\singlespace{\fontsize{8}{1}\selectfont%%
+		Rua Doutor Olavo Egídio, nº 185 - Santana\\São Paulo - SP - CEP 02037-000%%
+	}%%
+}%%
+%% v0.0.2.sn
+\def\ps@PapelTimbradoApostolosPaulistas{%%
+	\renewcommand{\@oddhead}{%%
+	\noindent%%
+	\begin{minipage}{25mm}%%
+		\TheApostolosPaulistasImage%%
+	\end{minipage}%%
+	\begin{minipage}{\textwidth-25mm}%%
+		\begin{center}%%
+			\TheApostolosPaulistasHeader%%\par%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
+	\renewcommand{\@oddfoot}{%%
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\TheApostolosPaulistasAddress%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
+	\let\@evenhead\@empty%%%
+	\let\@evenfoot\@empty%%%
+}%%
+%% v0.0.2.en
+%% v0.0.5.sn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes do Capitulo de Cavaleiros Rosa Cruz - Ricardo Bloise
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\TheSupremoConselhoName{Supremo Conselho dos Graus Escoceses 4 a 33 para o Brasil}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes do Capitulo de Cavaleiros Rosa Cruz - Ricardo Bloise
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\def\TheRicardoBloiseImage{\includegraphics[width=25mm]{images/ricardo-bloise.png}}%%
+%%
+\def\TheRicardoBloiseName{Sublime Capítulo de Cavaleiros Rosa Cruz \aspas{Ricardo Bloise}}%%
+%%
+\definecolor{ColorRicardoBloise}{rgb}{.67,.08,.12}%% ( 170, 20, 30 )
+%%
+\def\TheRicardoBloiseHeader{%%
+	\textcolor{ColorRicardoBloise}{\singlespace%%\fontsize{10,5}{1}\selectfont%%%
+		{\fontsize{12}{1}\selectfont\TheAUTOSAG}\vskip 0pt%%%
+		{\fontsize{10}{1}\selectfont\MakeUppercase{\TheSupremoConselhoName}}\vskip 0pt%%%
+		{\fontsize{11}{1}\selectfont\TheRicardoBloiseName}\vskip 0pt%%%
+		{\fontsize{08}{1}\selectfont Vale de São Paulo - SP}\vskip 0pt%%%
+		{\fontsize{07}{1}\selectfont 1ª \uppercase{Região Litúrgica - São Paulo}}\vskip 0pt%%%
+	}%%%
+}%%
+%%{\fontsize{20}{72}\usefont{T1}{bch}{b}{n} Certificado de Frequência (e Tesouraria)}%
+\def\TheRicardoBloiseFoundation{%%
+	\textcolor{ColorRicardoBloise}{\fontsize{6}{1}\usefont{T1}{phv}{b}{n} Fundado em 06-04-1990}%%
+}%%
+%%
+\def\TheRicardoBloiseAddress{%%
+	\singlespace{\fontsize{8}{1}\selectfont%%
+		Rua Doutor Olavo Egídio, nº 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%%
+	}%%
+}%%
+%%
+\def\ps@PapelTimbradoRicardoBloise{%%
+	\renewcommand{\@oddhead}{%%
+	\noindent%%
+	\parbox[c]{25mm}{\TheRicardoBloiseImage}%%
+	\parbox{\textwidth-25mm}{{\centering\TheRicardoBloiseHeader\par}}%%
+	}%%
+	\renewcommand{\@oddfoot}{%%
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\textcolor{ColorRicardoBloise}{\TheRicardoBloiseAddress}%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
+	\let\@evenhead\@empty%%%
+	\let\@evenfoot\@empty%%%
+}%%
+%% v0.0.5.en
+%% v0.1.0.sn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes da Loja Simbolica - Danylo Jose Fernandes
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% \def\TheDanyloJoseFernandesAcron{\SM{A.R.L.S.Benem.}}%%
+\def\TheDanyloJoseFernandesAcron{\SM{Aug.~e Resp.~Benem.~Loj.~Simb.}}%%
+%%
+\def\TheDanyloJoseFernandesName{Danylo José Fernandes}%%
+%%
+\def\TheDanyloJoseFernandesNumber{nº 90}%%
+%%
+\def\TheDanyloJoseFernandesImage{\includegraphics[width=25mm]{images/arls-djf.png}}%%
+%%
+\definecolor{ColorDanyloJoseFernandes}{rgb}{.58,.21,.20}%% ( 148, 54, 52 )
+%%
+\def\TheDanyloJoseFernandesHeader{%%
+	\vspace*{5mm}\noindent\makebox[\textwidth]{{\color{ColorDanyloJoseFernandes}\rule{\textwidth}{15mm}}}\par%%
+	\vspace*{-20mm}\hspace{-\textwidth}\hspace{65mm}\noindent\TheDanyloJoseFernandesImage%%
+}%%
+%%
+\def\TheDanyloJoseFernandesFooter{%%
+	\noindent{\color{ColorDanyloJoseFernandes}\rule{\textwidth}{1pt}}\par%%
+	{\fontsize{10}{1}\selectfont%%
+		\TheDanyloJoseFernandesAcron~\TheDanyloJoseFernandesName~--~\TheDanyloJoseFernandesNumber\vskip 0.1mm%%
+	}%%
+	{\fontsize{8}{1}\selectfont%%
+		Sob os auspícios do Grande Oriente Paulista -- \negrito{\SM{G.O.P.}}\vskip 0.1mm%%
+	}%%
+	\TheDanyloJoseFernandesAddress\vskip 0.1mm%%
+}%%
+%%
+\def\TheDanyloJoseFernandesAddress{%%
+	\singlespace{\fontsize{8}{1}\selectfont%%
+		Rua Doutor Olavo Egídio, nº 185 -- Santana -- São Paulo -- SP%%
+	}%%
+}%%
+%%
+\def\ps@PapelTimbradoDanyloJoseFernandes{%%
+	\renewcommand{\@oddhead}{%%
+	\noindent%%
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\TheDanyloJoseFernandesHeader%%\par%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
+	\renewcommand{\@oddfoot}{%%
+	\noindent%%
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\textcolor{ColorDanyloJoseFernandes}{\TheDanyloJoseFernandesFooter}%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
+	\let\@evenhead\@empty%%%
+	\let\@evenfoot\@empty%%%
+}%%
+%% v0.1.0.en
+%% v0.1.2.sn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Definicoes do Conselho Filosófico de Cavaleiros Kadosch - Jose Caccaos
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\def\TheJoseCaccaosImage{\includegraphics[width=30mm]{images/kadosch-jose-caccaos.png}}%%
+%%
+\def\TheJoseCaccaosTitle{\SM{Il.~Ben.~e Benf.~Master Excelso Cons.~Fil.~de CCav.~Kadosch}}%%
+%%
+\def\TheJoseCaccaosName{José Caccáos}%%
+%%
+\def\TheJoseCaccaosHeader{%%
+	{\singlespace%%
+		{\fontsize{12}{1}\selectfont\TheAUTOSAG\vskip 3pt}%%
+		{\fontsize{10,5}{1}\selectfont%%
+			Ao \TheJoseCaccaosTitle\vskip 3pt%%
+			\negrito{\aspas{\TheJoseCaccaosName}}\vskip 3pt%%
+		}%%
+		{\fontsize{8}{1}\selectfont%%
+			\SM{Subor.}~\TheSupremoConselhoName\vskip 3pt%%
+			\SM{Jurisd.~ao Consistório \aspas{Pitágoras} PPrinc.~R.~S.}\vskip 3pt%%
+			Grande Delegacia da 1ª Região Litúrgica -- São Paulo\vskip 1pt%%
+		}%%
+	}%%
+}%%
+%%
+\def\ps@PapelTimbradoJoseCaccaos{%%
+	\renewcommand{\@oddhead}{%%
+	\noindent%%
+%%	\parbox[c]{30mm}{\TheJoseCaccaosImage}%%
+	\parbox{\textwidth}{{\centering\TheJoseCaccaosHeader}}%%
+%%	\centering\TheJoseCaccaosHeader%%
+	}%%
+	\let\@evenhead\@empty%%%
+	\renewcommand{\@oddfoot}{%%%
+	\noindent%%
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\thepage%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%%
+	\let\@evenfoot\@oddfoot%%%
+}%%
+%% v0.1.2.en
+%% v.0.1.1.sn
+%%
+%%	This configuration will be always the last lines configuration in this file.
+%%
+\def\TheDefaultSaudation{}%%
+%%
+\def\TheDefaultLocation{}%%
+%%
+\DeclareOption{arlsap}{%%
+	\pagestyle{PapelTimbradoApostolosPaulistas}%%
+	\let\TheDefaultSaudation\TheSFU%%
+	\def\TheDefaultLocation{Oriente}%%
+}%%
+%%
+\DeclareOption{arlsdjf}{%%
+	\pagestyle{PapelTimbradoDanyloJoseFernandes}%%
+	\let\TheDefaultSaudation\TheSFU%%
+	\def\TheDefaultLocation{Oriente}%%
+}%%
+%%
+\DeclareOption{sccrcrb}{%%
+	\pagestyle{PapelTimbradoRicardoBloise}%%
+	\let\TheDefaultSaudation\TheLuxExTenebris%%
+	\def\TheDefaultLocation{Vale}%%
+}%%
+%%
+\DeclareOption{kadoschjc}{%%
+	\setlength{\margemsuperior}{40mm}%%%
+	\pagestyle{PapelTimbradoJoseCaccaos}%%
+	\let\TheDefaultSaudation\TheOrdoAbChao%%
+	\def\TheDefaultLocation{Clima}%%
+}%%
+%%
+\ProcessOptions\relax%%
+%% v.0.1.1.en
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	End of file 'macom.sty'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

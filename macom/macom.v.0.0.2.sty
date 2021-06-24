@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	macom.sty
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Licença LPPL ( LaTeX Project Public License )
+%%	Esta licença diz basicamente que se você editar o código desta classe,
+%%	mesmo que localmente (no seu micro), você DEVERÁ RENOMEAR o arquivo da
+%%	classe.
+%%
+%%	Classe para confecção de monografias, dissertações ou teses de acordo
+%%	com as nomas da Associação Brasileira de Normas Técnicas (ABNT).
+%%
+%%	Autor: Wagner Baptista Vicente
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Controle de versão
+%%
+%%	Versão: 0.0.1 - 01/05/2013 - ID: v0.0.1
+%%	The file this class.
+%%
+%%	Versão: 0.0.2 - 19/06/2014 - ID: v0.0.2
+%%	Create default page style to Balaustre.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Identificação da classe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]%%
+\ProvidesClass{macom}[2013/05/01 v.0.0.1 - Macom LaTeX document class]%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xstring}%%
+%\input{xstring.sty}%% Class with trataments strings.
+%%
+\def\SM#1{\StrSubstitute{#1}{.}{\raise.15ex\hbox{$\therefore$}}}%%
+%%
+\def\TheNameMacomStore{Apóstolos Paulistas}%%
+%%
+\def\TheAddressStore{Rua Doutor Olavo Egídio, nº 185}%%
+%%
+\def\TheNumberStore{nº 91}%%
+%%
+\def\TheStoreAcron{\SM{A.R.L.S.G.Benf.}}%%
+%%
+\def\TheMacomHeader{%%
+	{\large\TheStoreAcron~\TheNameMacomStore}~-~\TheNumberStore\\%%
+	{\small Filiada ao~%%
+	{\bfseries G}rande~%%
+	{\bfseries O}riente~%%
+	{\bfseries P}aulista\\%%
+	Integrante da Confederação Maçônica do Brasil - {\bfseries COMAB}}%%
+}%%
+%%
+\def\TheGADU{\SM{G.A.D.U.}}%%
+%%
+\def\TheREAA{\SM{R.E.A.A.}}%%
+%%
+\def\TheGOP{\SM{G.O.P.}}%%
+%%
+\def\TheVM{\SM{V.M.}}%%
+%%
+\def\TheRespeitab{\SM{Respeitab.M.}}%%
+%%
+\def\Ir{\SM{Ir.}}%%
+\def\Ir#1{\SM{Ir.}~ #1}%%
+%%
+\def\Irmao{\SM{Ir.}}%%
+%%
+\def\IIr{\SM{IIr.}}%%
+%%
+\def\Irmaos{\SM{IIr.}}%%
+%%
+\def\TheVig#1{\Ir{#1º~ \SM{Vig.}}}%%
+%%
+\def\TheDiac#1{\Ir{#1º~ \SM{Diac.}}}%%
+%%
+\def\TFA{\SM{T.F.A.}}%%
+%%
+\def\TheJob#1{\noindent{\bfseries Trabalho :} #1\vskip 5mm}%%
+%%
+\def\TheExtraJob#1{\noindent{\bfseries Trabalho de quarto de hora :} #1\vskip 5mm}%%
+%%
+\def\TheMacomStoreImage{\includegraphics[width=25mm]{arls-ap.png}}%%
+%%
+\def\TheSFU{\begin{center}\SM{F.}\vskip 3mm\SM{S.}\hskip 6.93mm\SM{U.}\end{center}}%%
+%%
+\def\TheHeaderStore{%%
+	\noindent%%
+	\begin{minipage}{25mm}%%
+		\TheMacomStoreImage%%
+	\end{minipage}%%
+	\begin{minipage}{\textwidth-25mm}%%
+	\begin{center}%%
+		À~\SM{G.D.}\TheGADU\par%%
+		\TheStoreAcron~\TheNameMacomStore\par%%
+		\TheVM~-~\TheVig{1}~-~\TheVig{2}~-~Past Master~-~\SM{OOf.}~-~Meus \IIr\par%%
+	\end{center}%%
+	\end{minipage}%%
+}%%
+%%
+\def\TheHeaderPresentation{%%
+	\thispagestyle{empty}%%
+	\TheHeaderStore%%
+	\noindent%%
+	\TheSFU%%
+	\vskip 5mm%%
+}%%
+%%
+%% v0.0.2.sn
+\def\ps@PapelTimbrado{%%
+	\renewcommand{\@oddhead}{%%
+	\noindent%%
+	\begin{minipage}{25mm}%%
+		\TheMacomStoreImage%%
+	\end{minipage}%%
+	\begin{minipage}{\textwidth-25mm}%%
+	\begin{center}%%
+		\TheMacomHeader\par%%
+	\end{center}%%
+	\end{minipage}%%
+	}%%
+	\renewcommand{\@oddfoot}{%%
+	\begin{minipage}{\textwidth}%%
+	\begin{center}%%
+		{\small%%
+			Rua Doutor Olavo Egídio, nº 185 - Santana\\%%
+			São Paulo - SP - CEP 02037-000%%
+		}%%
+	\end{center}%%
+	\end{minipage}%%
+	}%%
+}%%
+%% v0.0.2.en
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	End of file 'macom.sty'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
