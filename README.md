@@ -1,17 +1,17 @@
 # My LaTeX !
 
-My repository to keep my files **$\TeX$**.
+My repository to keep my files **\TeX**.
 
 # Packages
 
-All packages that I need to edit my **$\LaTeX$** environment.
+All packages that I need to edit my **\LaTeX** environment.
 
 ##  ABNTeX2
 
-Standards for formatting academic documents. See the page [$ABNTeX_2$](https://www.abntex.net.br/ "ABNTeX")
+Standards for formatting academic documents. See the page [ABNTeX_2](https://www.abntex.net.br/ "ABNTeX")
 
 > `# cd /usr/share/texmf`
-> `# tar xzf /home/wagner/GitHub/LaTeX/abntex2.tds-1.9.7.tar.gz`
+> `# tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
 
 ## Normal
 
@@ -29,10 +29,10 @@ Structure for the works of the Masonic Lodge.
 
 ## XString
 
-Routines for *strings* treatments inside **$\LaTeX$**.
+Routines for *strings* treatments inside **\LaTeX**.
 
 > `# cd /usr/share/texmf/tex/latex`
-> `# ln -s /home/wagner/GitHub/LaTeX/xstring`
+> `# ln -s /home/wagner/LaTeX/xstring`
 
 ## Suffix / Bigfoot
 
@@ -40,7 +40,7 @@ Tools to improve Acronym.
 
 ## DraftWaterMark
 
-Create Water Mark in **$\LaTeX$** environment.
+Create Water Mark in **\LaTeX** environment.
 
 ## CJHebrew
 
