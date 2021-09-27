@@ -462,6 +462,7 @@ Irmão \acl{#2} \SM{#1.}%%
 \def\TheDefaultLocation{}%%
 %%
 \DeclareOption{arlsap}{%%
+	\setlength{\margemsuperior}{40mm}%%%
 	\pagestyle{PapelTimbradoApostolosPaulistas}%%
 	\let\TheDefaultSaudation\TheSFU%%
 	\def\TheDefaultLocation{Oriente}%%
@@ -487,7 +488,7 @@ Irmão \acl{#2} \SM{#1.}%%
 }%%
 %%
 \DeclareOption{consistorio}{%%
-	\setlength{\margemsuperior}{40mm}%%%
+	% \setlength{\margemsuperior}{35mm}%%%
 	\pagestyle{PapelTimbradoPitagoras}%%
 	\let\TheDefaultSaudation\TheLuxPopuliDei%%
 	\def\TheDefaultLocation{Acampamento}%%
