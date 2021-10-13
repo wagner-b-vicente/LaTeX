@@ -177,7 +177,7 @@
 \input{xstring.sty}%%% Tratamento de strings.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%\RequirePackage{setspace}%%%
-\input{setspace.sty}%%%
+%%\input{setspace.sty}%%%
 \RequirePackage[pdftex,colorlinks=false]{hyperref}%%%
 \RequirePackage[pdftex]{graphicx}%%%
 \RequirePackage[english,brazil]{babel}%%%

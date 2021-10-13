@@ -126,6 +126,14 @@
 \fi%%
 Irmão \acl{#2} \SM{#1.}%%
 }%%
+%%
+\def\TheHebrewWord[#1]#2{%%
+	\ifnum#1>0%%
+	{\fontsize{#1}{1}\selectfont\<#2>}%%
+	\else%%
+	\<#2>%%
+	\fi%%
+}%%
 %% HOMOLOGACAO.en
 %%
 %\def\Ir{\SM{Ir.}\secdef\@mIr\@sIr}%%
