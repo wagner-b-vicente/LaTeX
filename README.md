@@ -25,6 +25,7 @@ Development to assist with $\LaTeX$ documents.
 Structure for the works of the Masonic Lodge.
 
 >`# cd /usr/share/texmf/tex/latex`
+>
 >`# ln -s /home/wagner/GitHub/LaTeX/macom`
 
 ## XString
