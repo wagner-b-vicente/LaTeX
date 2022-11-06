@@ -18,14 +18,8 @@
 %%
 %%	Controle de versão
 %%
-%%	Versão: 0.0.1 - 01/05/2013 - ID: v0.0.1
-%%	The file this class.
-%%
-%%	Versão: 0.0.2 - 29/05/2013 - ID: V0.0.2
-%%	Otimização do código.
-%%
-%%	Versão: 0.0.3 - 05/09/2015 - ID: V0.0.3
-%%	Versão em aberto. Inclusão não feita.
+%%	Versão: 1.0.0 - 04/11/2022 - ID: v1.0.0
+%%	Clear oldest versions ID.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -42,100 +36,54 @@
 \newif\if@openright%%
 %% Define paper size
 \if@compatibility%%
-%% v0.0.2.sn
-	\renewcommand\@ptsize{0}%% Define font size
-%% v0.0.2.en
+  \renewcommand\@ptsize{0}%% Define font size
 \else%%
-	\DeclareOption{a4paper}{%%
-		\setlength\paperheight{297mm}%%
-		\setlength\paperwidth {210mm}%%
-	}%%
-	\DeclareOption{a5paper}{%%
-		\setlength\paperheight{210mm}%%
-		\setlength\paperwidth {148mm}%%
-	}%%
-	\DeclareOption{landscape}{%%
-		\setlength\@tempdima  {\paperheight}%%
-		\setlength\paperheight{\paperwidth}%%
-		\setlength\paperwidth {\@tempdima}%%
-	}%%
-%% v0.0.2.sn
-	\DeclareOption{10pt}{\renewcommand\@ptsize{0}}%% Define font size
-	\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}%%
-	\DeclareOption{final}{\setlength\overfullrule{0pt}}%%
-	\DeclareOption{notitlepage}{\@titlepagefalse}%%
-	\DeclareOption{openright}{\@openrighttrue}%%
-	\DeclareOption{openany}{\@openrightfalse}%%
-	\DeclareOption{onecolumn}{\@twocolumnfalse}%%
-%% v0.0.2.en
+  \DeclareOption{a4paper}{%%
+    \setlength\paperheight{297mm}%%
+    \setlength\paperwidth {210mm}%%
+  }%%
+  \DeclareOption{a5paper}{%%
+    \setlength\paperheight{210mm}%%
+    \setlength\paperwidth {148mm}%%
+  }%%
+  \DeclareOption{landscape}{%%
+    \setlength\@tempdima  {\paperheight}%%
+    \setlength\paperheight{\paperwidth}%%
+    \setlength\paperwidth {\@tempdima}%%
+  }%%
+  \DeclareOption{10pt}{\renewcommand\@ptsize{0}}%% Define font size
+  \DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}%%
+  \DeclareOption{final}{\setlength\overfullrule{0pt}}%%
+  \DeclareOption{notitlepage}{\@titlepagefalse}%%
+  \DeclareOption{openright}{\@openrighttrue}%%
+  \DeclareOption{openany}{\@openrightfalse}%%
+  \DeclareOption{onecolumn}{\@twocolumnfalse}%%
 \fi%%
-%% v0.0.2.so
-%% Define font size
-%% \if@compatibility%%
-%% 	\renewcommand\@ptsize{0}%%
-%% \else%%
-%% 	\DeclareOption{10pt}{\renewcommand\@ptsize{0}}%%
-%% \fi%%
-%% v0.0.2.eo
+%%
 \DeclareOption{11pt}{\renewcommand\@ptsize{1}}%%
 \DeclareOption{12pt}{\renewcommand\@ptsize{2}}%%
-%% v0.0.2.so
-%% Define ? ? ?
-%% \if@compatibility%%
-%% \else%%
-%% 	\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}%%
-%% \fi%%
-%% v0.0.2.eo
+\DeclareOption{14pt}{\renewcommand\@ptsize{3}}%%
 \DeclareOption{twoside}{\@twosidetrue \@mparswitchtrue}%%
-%%
 \DeclareOption{draft}{\setlength\overfullrule{5pt}}%%%
-%% v0.0.2.so
-%% %% Define ? ? ?
-%% \if@compatibility%%
-%% \else%%
-%% 	\DeclareOption{final}{\setlength\overfullrule{0pt}}%%
-%% \fi%%
-%% v0.0.2.eo
 \DeclareOption{titlepage}{\@titlepagetrue}%%
-%% v0.0.2.so
-%% %% Define ? ? ?
-%% \if@compatibility%%
-%% \else%%
-%% 	\DeclareOption{notitlepage}{\@titlepagefalse}%%
-%% \fi%%
-%% %% Define ? ? ?
-%% \if@compatibility%%
-%% \else%%
-%% 	\DeclareOption{openright}{\@openrighttrue}%%
-%% 	\DeclareOption{openany}{\@openrightfalse}%%
-%% \fi%%
-%% %% Define ? ? ?
-%% \if@compatibility%%
-%% \else%%
-%% 	\DeclareOption{onecolumn}{\@twocolumnfalse}%%
-%% \fi%%
-%% v0.0.2.eo
 \DeclareOption{twocolumn}{\@twocolumntrue}%%
-%%
 \DeclareOption{leqno}{\input{leqno.clo}}%%
 \DeclareOption{fleqn}{\input{fleqn.clo}}%%
 %%
-%% V.0.0.1.sn
 \newif\if@fontarial%%
 \DeclareOption{fontarial}{\@fontarialtrue}%%
 \DeclareOption{fontother}{\@fontarialfalse}%%
-%% V.0.0.1.en
 %%
 \DeclareOption{openbib}{%%
-	\AtEndOfPackage{%%
-		\renewcommand\@openbib@code{%%
-			\advance\leftmargin\bibindent%%
-			\itemindent -\bibindent%%
-			\listparindent \itemindent%%
-			\parsep \z@%%
-		}%%
-		\renewcommand\newblock{\par}%%
-	}%%
+  \AtEndOfPackage{%%
+    \renewcommand\@openbib@code{%%
+      \advance\leftmargin\bibindent%%
+      \itemindent -\bibindent%%
+      \listparindent \itemindent%%
+      \parsep \z@%%
+    }%%
+    \renewcommand\newblock{\par}%%
+  }%%
 }%%
 %%
 %% Executing the options
@@ -147,37 +95,30 @@
 %% Loading auxiliars files
 %%
 \input{size1\@ptsize.clo}
-%% V.0.0.1.sn
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%	Packages used in this class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage[utf8]{inputenc}%%% Allow process files with accents
-\RequirePackage[T1]{fontenc}%%% Hyphenization algorithm
-%% \RequirePackage{indentfirst}%%% Indentity the first line
-\input{indentfirst.sty}%%% Indentity the first line
-%% \RequirePackage{makeidx}%%% Allow index "remissivo"
-\input{makeidx.sty}%%% Allow index "remissivo"
-\RequirePackage{ifthen}%		%% Allow conditions at LaTeX
-\RequirePackage{calc}%			%% stand pack for len and number easy calculations
-\RequirePackage{url}%			%% Active call of URL from PDF
-\RequirePackage{multicol}%		%%
-\RequirePackage{amsmath}%		%%
-\RequirePackage{amsfonts}%		%%
-\RequirePackage{amssymb}%		%%
-\RequirePackage{amsbsy}%		%% Bold version of symbols in amssymb
-\RequirePackage{mathrsfs}%		%%
-\RequirePackage{latexsym}%		%% Mathematic symbols
-\RequirePackage[mathscr]{eucal}%	%% New calligraphic letters
-\RequirePackage{dsfont}%		%% Double Stronker Fonts
-\RequirePackage{fancyvrb}%		%%
-\RequirePackage{microtype}%		%% para melhorias de justificação
-%\RequirePackage{longtable}%		%%
-%\RequirePackage[printonlyused]{acronym}%%%
-%% \RequirePackage{xstring}%%% Tratamento de strings.
-\input{xstring.sty}%%% Tratamento de strings.
+\RequirePackage[utf8]{inputenc}%      %% Allow process files with accents
+\RequirePackage[T1]{fontenc}%         %% Hyphenization algorithm
+\input{indentfirst.sty}%              %% Indentity the first line
+\input{makeidx.sty}%                  %% Allow index "remissivo"
+\RequirePackage{ifthen}%              %% Allow conditions at LaTeX
+\RequirePackage{calc}%		            %% stand pack for len and number easy calculations
+\RequirePackage{url}%			            %% Active call of URL from PDF
+\RequirePackage{multicol}%            %%
+\RequirePackage{amsmath}%             %%
+\RequirePackage{amsfonts}%            %%
+\RequirePackage{amssymb}%             %%
+\RequirePackage{amsbsy}%              %% Bold version of symbols in amssymb
+\RequirePackage{mathrsfs}%            %%
+\RequirePackage{latexsym}%            %% Mathematic symbols
+\RequirePackage[mathscr]{eucal}%      %% New calligraphic letters
+\RequirePackage{dsfont}%              %% Double Stronker Fonts
+\RequirePackage{fancyvrb}%            %%
+\RequirePackage{microtype}%           %% para melhorias de justificação
+\input{xstring.sty}%                  %% Tratamento de strings.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%\RequirePackage{setspace}%%%
-%%\input{setspace.sty}%%%
 \RequirePackage[pdftex,colorlinks=false]{hyperref}%%%
 \RequirePackage[pdftex]{graphicx}%%%
 \RequirePackage[english,brazil]{babel}%%%
@@ -190,59 +131,54 @@
 \newlength\margemesquerda%%
 \newlength\margemdireita%%
 %%
-\setlength{\margemsuperior}{35mm}%%%
-\setlength{\margemesquerda}{30mm}%%%
-\setlength{\margeminferior}{20mm}%%%
-\setlength{\margemdireita} {20mm}%%%
+\setlength{\margemsuperior}{35mm}%%
+\setlength{\margemesquerda}{30mm}%%
+\setlength{\margeminferior}{20mm}%%
+\setlength{\margemdireita} {20mm}%%
 %%
 %%	Margem Superior
 %%
-%% \setlength{\topmargin}{5mm}%%%
-%% \setlength{\headheight}{20mm}%%%
-%% \setlength{\headsep}{5mm}%%%
-%% \setlength{\voffset}{\margemsuperior-1in-\topmargin-\headheight-\headsep}%%%
+\setlength{\voffset}{-1in}%%
+\setlength{\topmargin}{5mm}%%
+\setlength{\headheight}{0mm}%%
+\setlength{\headsep}{\margemsuperior}%%
 %%
-\setlength{\voffset}{-25.4mm}%%%
-\setlength{\topmargin}{5mm}%%%
-\setlength{\headheight}{0mm}%%%
-\setlength{\headsep}{\margemsuperior}%%%
-%%%
-%%%	Margem Inferior
-%%%
-\setlength{\textheight}{%%%
-	\paperheight-\topmargin-\headheight-\headsep-\margeminferior%%%
-}%%%
-%%%
-%%%	Margem Esquerda
-%%%
-\setlength{\hoffset}{\margemesquerda-1in}%%%
-\setlength{\oddsidemargin}{0mm}%%%
-\setlength{\evensidemargin}{-10mm}%%%
-\setlength{\marginparwidth}{0mm}%%%
-\setlength{\marginparsep}{0mm}%%%
-%%%
-%%%	Margem Direita
-%%%
-\setlength{\textwidth}{%%%
-	\paperwidth-1in-\hoffset-\oddsidemargin-\margemdireita%%%
-}%%%
+%%	Margem Inferior
 %%
-\setlength\parindent{20mm}%%%
-\setlength\parskip{3mm}%%%
+\setlength{\textheight}{%%
+  \paperheight-\topmargin-\headheight-\headsep-\margeminferior%%
+}%%
+%%
+%%	Margem Esquerda
+%%
+\setlength{\hoffset}{\margemesquerda-1in}%%
+\setlength{\oddsidemargin}{0mm}%%
+\setlength{\evensidemargin}{-10mm}%%
+\setlength{\marginparwidth}{0mm}%%
+\setlength{\marginparsep}{0mm}%%
+%%
+%%	Margem Direita
+%%
+\setlength{\textwidth}{%%
+  \paperwidth-1in-\hoffset-\oddsidemargin-\margemdireita%%
+}%%
+%%
+\setlength\parindent{20mm}%%
+\setlength\parskip{3mm}%%
 %%
 \if@fontarial%%
-	\IfFileExists{helvet.sty}{\RequirePackage{helvet}}{}%%
-	\IfFileExists{helvetic.sty}{\RequirePackage{helvetic}}{}%%
-	\renewcommand{\rmdefault}{phv}%%
-	\fontfamily{phv}%%
+  \IfFileExists{helvet.sty}{\RequirePackage{helvet}}{}%%
+  \IfFileExists{helvetic.sty}{\RequirePackage{helvetic}}{}%%
+  \renewcommand{\rmdefault}{phv}%%
+  \fontfamily{phv}%%
 \else%%
-	\IfFileExists{mathptmx.sty}{\RequirePackage{mathptmx}}{}%%
-	\IfFileExists{mathptm.sty}{\RequirePackage{mathptm}}{}%%
-	\IfFileExists{times.sty}{\RequirePackage{times}}{}%%
-	\renewcommand{\rmdefault}{ptm}%%
-	\fontfamily{ptm}%%
+  \IfFileExists{mathptmx.sty}{\RequirePackage{mathptmx}}{}%%
+  \IfFileExists{mathptm.sty}{\RequirePackage{mathptm}}{}%%
+  \IfFileExists{times.sty}{\RequirePackage{times}}{}%%
+  \renewcommand{\rmdefault}{ptm}%%
+  \fontfamily{ptm}%%
 \fi%%
-%% V.0.0.1.en
+%%
 \setlength\lineskip{1\p@}%%
 \setlength\normallineskip{1\p@}%%
 \renewcommand\baselinestretch{}%%
@@ -264,84 +200,82 @@
 \renewcommand\dbltopfraction{.7}%%
 \renewcommand\dblfloatpagefraction{.5}%%
 %%
-%% V.0.0.1.sn
-%%
 %% Page Style
 %%
 \def\ps@normalpage{%%
-	\let\@oddfoot\@empty%%
-	\let\@evenfoot\@empty%%
-	\def\@oddhead{\hfill{\small\thepage}}%%
-	\if@twoside%%
-		\def\@evenhead{{\small\thepage}\hfill}%%
-	\else%%
-		\let\@evenhead\@oddhead%%
-	\fi%%
+  \let\@oddfoot\@empty%%
+  \let\@evenfoot\@empty%%
+  \def\@oddhead{\hfill{\small\thepage}}%%
+  \if@twoside%%
+    \def\@evenhead{{\small\thepage}\hfill}%%
+  \else%%
+    \let\@evenhead\@oddhead%%
+  \fi%%
 }%%
 %%
 \def\ps@headings{%%
-	\let\@oddfoot\@empty%%
-	\let\@evenfoot\@empty%%
-	\def\@oddhead{\hfill{\small\thepage}}%%
-	\if@twoside%%
-		\def\@evenhead{{\small\thepage}\hfill}%%
-	\else%%
-		\let\@evenhead\@oddhead%%
-	\fi%%
+  \let\@oddfoot\@empty%%
+  \let\@evenfoot\@empty%%
+  \def\@oddhead{\hfill{\small\thepage}}%%
+  \if@twoside%%
+    \def\@evenhead{{\small\thepage}\hfill}%%
+  \else%%
+    \let\@evenhead\@oddhead%%
+  \fi%%
 }%%
 %%
 \def\ps@myheadings{%%
-	\let\@oddfoot\@empty%%
-	\let\@evenfoot\@empty%%
-	\def\@oddhead{\hfill{\small\thepage}}%%
-	\if@twoside%%
-		\def\@evenhead{{\small\thepage}\hfill}%%
-	\else%%
-		\let\@evenhead\@oddhead%%
-	\fi%%
+  \let\@oddfoot\@empty%%
+  \let\@evenfoot\@empty%%
+  \def\@oddhead{\hfill{\small\thepage}}%%
+  \if@twoside%%
+    \def\@evenhead{{\small\thepage}\hfill}%%
+  \else%%
+    \let\@evenhead\@oddhead%%
+  \fi%%
 }%%
 %%
 \def\ps@emptypage{%%
-	\let\@oddfoot\@empty%%
-	\let\@evenfoot\@empty%%
-	\let\@oddhead\@empty%%
-	\let\@evenhead\@empty%%
+  \let\@oddfoot\@empty%%
+  \let\@evenfoot\@empty%%
+  \let\@oddhead\@empty%%
+  \let\@evenhead\@empty%%
 }%%
-
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%	My environment implementation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\aspas#1{``#1''}%%
-
+%%
 \def\aspassimples#1{`#1'}%%
-
+%%
 \def\italico#1{{\slshape #1}}%%
-
+%%
 \def\negrito#1{{\bfseries #1}}%%
-
+%%
 \def\sublinhado#1{\underline{#1}}%%
-
+%%
 \def\citacao#1#2{%%
-	\vskip 2mm%%
-	{%%
-		\singlespacing\footnotesize\hfill%%
-		\begin{minipage}{\textwidth-40mm}%%
-			\aspas{#1}. \ifx&#2&\else(#2)\fi%%
-		\end{minipage}%%
-	}%%
-	\vskip 5mm%%
+  \vskip 2mm%%
+  {%%
+    \singlespacing\footnotesize\hfill%%
+    \begin{minipage}{\textwidth-40mm}%%
+      \aspas{#1}. \ifx&#2&\else(#2)\fi%%
+    \end{minipage}%%
+  }%%
+  \vskip 5mm%%
 }%%
-
+%%
 \def\citado{%
-	\list{}{%
-		\singlespacing\footnotesize%
-		\setlength{\listparindent}{0mm}%
-		\setlength{\itemindent}{\listparindent}%
-		\setlength{\rightmargin}{0mm}%
-		\setlength{\leftmargin}{40mm}%
-		\setlength{\parsep}{0pt}%
-		\item[]%
-	}%
+  \list{}{%
+    \singlespacing\footnotesize%
+    \setlength{\listparindent}{0mm}%
+    \setlength{\itemindent}{\listparindent}%
+    \setlength{\rightmargin}{0mm}%
+    \setlength{\leftmargin}{40mm}%
+    \setlength{\parsep}{0pt}%
+    \item[]%
+  }%
 }%
 \let\endcitado\endlist%
 \def\Titulo#1{\vskip 15pt\noindent{\fontsize{14}{1}\selectfont\sc #1 \vskip 3pt}}%%
@@ -349,24 +283,6 @@
 \def\Secao#1{\vskip 5mm\noindent{\fontsize{13}{1}\selectfont\negrito{#1}}\vskip 3mm}%%
 %%
 
-
-% \def\citado{%%
-% 	\list{}{%%
-% 		\singlespacing\footnotesize%
-% 		\listparindent	0mm%%
-% 		\itemindent	\listparindent%%
-% 		\rightmargin	0mm%%
-% 		\leftmargin	40mm%%
-% 		\parsep		0pt%%
-% 	\item\relax%%
-% 	}%%
-% }%%
-% {\endlist}%%
-%% V.0.0.1.en
-%% V.TESTE.sn
-\def\valor#1#2{$#1\$~#2$}%%
-%% V.TESTE.en
-%%
 %%\if@twoside
 %%  \def\ps@headings{%
 %%      \let\@oddfoot\@empty\let\@evenfoot\@empty
@@ -516,161 +432,161 @@
 %%	PART - Environment
 %%
 \def\part{%%
-	\newpage%%
-	\thispagestyle{empty}%%
-	\if@twocolumn%%
-		\onecolumn%%
-		\@tempswatrue%%
-	\else%%
-		\@tempswafalse%%
-	\fi%%
-	\null\vfil%%
-	\secdef\@part\@spart
+  \newpage%%
+  \thispagestyle{empty}%%
+  \if@twocolumn%%
+    \onecolumn%%
+    \@tempswatrue%%
+  \else%%
+    \@tempswafalse%%
+  \fi%%
+  \null\vfil%%
+  \secdef\@part\@spart
 }%%
 %%
 \def\@part[#1]#2{%%
-	\ifnum \c@secnumdepth >-2\relax%%
-		\refstepcounter{part}%%
-		\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%%
-	\else%%
-		\addcontentsline{toc}{part}{#1}%%
-	\fi%%
-	\markboth{}{}%%
-	{%%
-		\centering \interlinepenalty \@M%%
-		\normalfont%%
-		\ifnum \c@secnumdepth >-2\relax%%
-			\Large\bfseries\partname\nobreakspace\thepart%%
-			\par%%
-			\vskip 20\p@%%
-		\fi%%
-		\Large\bfseries\uppercase{#2}\par%%
-	}%%
-	\@endpart%%
+  \ifnum \c@secnumdepth >-2\relax%%
+    \refstepcounter{part}%%
+    \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%%
+  \else%%
+    \addcontentsline{toc}{part}{#1}%%
+  \fi%%
+  \markboth{}{}%%
+  {%%
+    \centering \interlinepenalty \@M%%
+    \normalfont%%
+    \ifnum \c@secnumdepth >-2\relax%%
+      \Large\bfseries\partname\nobreakspace\thepart%%
+      \par%%
+      \vskip 20\p@%%
+    \fi%%
+    \Large\bfseries\uppercase{#2}\par%%
+  }%%
+  \@endpart%%
 }%%
 %%
 \def\@spart#1{%%
-	{%%
-		\centering \interlinepenalty \@M%%
-		\normalfont \Large \bfseries \uppercase{#1}\par%%
-	}%%
-	\@endpart%%
+  {%%
+    \centering \interlinepenalty \@M%%
+    \normalfont \Large \bfseries \uppercase{#1}\par%%
+  }%%
+  \@endpart%%
 }%%
 %%
 \def\@endpart{%%
-	\vfil\newpage%%
-	\if@twoside%%
-		\if@openright%%
-			\null \thispagestyle{empty} \newpage%%
-		\fi%%
-	\fi%%
-	\if@tempswa \twocolumn \fi%%
+  \vfil\newpage%%
+  \if@twoside%%
+    \if@openright%%
+      \null \thispagestyle{empty} \newpage%%
+    \fi%%
+  \fi%%
+  \if@tempswa \twocolumn \fi%%
 }%%
 %%
 %%	CHAPTER - Environment
 %%
 \def\chapter{%%
-	\newpage%%
-	\thispagestyle{empty}%%
-	\global\@topnum\z@%%
-	\@afterindentfalse%%
-	\secdef\@chapter\@schapter%%
+  \newpage%%
+  \thispagestyle{empty}%%
+  \global\@topnum\z@%%
+  \@afterindentfalse%%
+  \secdef\@chapter\@schapter%%
 }%%
 %%
 \def\@chapter[#1]#2{%%
-	\ifnum \c@secnumdepth >\m@ne%%
-		\refstepcounter{chapter}%%
-		\typeout{\@chapapp\space\thechapter.}%%
-		\addcontentsline{toc}{chapter}%%
-			{\protect\numberline{\thechapter}#1}%%
-	\else%%
-		\addcontentsline{toc}{chapter}{#1}%%
-	\fi%%
-	\chaptermark{#1}%%
-	\addtocontents{lof}{\protect\addvspace{10\p@}}%%
-	\addtocontents{lot}{\protect\addvspace{10\p@}}%%
-	\if@twocolumn%%
-		\@topnewpage[\@makechapterhead{#2}]%%
-	\else%%
-		\@makechapterhead{#2}%%
-		\@afterheading%%
-	\fi%%
+  \ifnum \c@secnumdepth >\m@ne%%
+    \refstepcounter{chapter}%%
+    \typeout{\@chapapp\space\thechapter.}%%
+    \addcontentsline{toc}{chapter}%%
+      {\protect\numberline{\thechapter}#1}%%
+  \else%%
+    \addcontentsline{toc}{chapter}{#1}%%
+  \fi%%
+  \chaptermark{#1}%%
+  \addtocontents{lof}{\protect\addvspace{10\p@}}%%
+  \addtocontents{lot}{\protect\addvspace{10\p@}}%%
+  \if@twocolumn%%
+    \@topnewpage[\@makechapterhead{#2}]%%
+  \else%%
+    \@makechapterhead{#2}%%
+    \@afterheading%%
+  \fi%%
 }%%
 %%
 \def\@makechapterhead#1{%%
-	{%%
-		\parindent \z@ \raggedright \normalfont%%
-		\interlinepenalty\@M%%
-		\large\bfseries\thechapter.\hskip 10mm%%
-		\uppercase{#1}\par\nobreak%%
-		\vskip 10mm%%
-	}%%
+  {%%
+    \parindent \z@ \raggedright \normalfont%%
+    \interlinepenalty\@M%%
+    \large\bfseries\thechapter.\hskip 10mm%%
+    \uppercase{#1}\par\nobreak%%
+    \vskip 10mm%%
+  }%%
 }%%
 %%
 \def\@schapter#1{%%
-	\addcontentsline{toc}{chapter}{#1}%%
-	\if@twocolumn%%
-		\@topnewpage[\@makeschapterhead{#1}]%%
-	\else%%
-		\@makeschapterhead{#1}%%
-		\@afterheading%%
-	\fi%%
+  \addcontentsline{toc}{chapter}{#1}%%
+  \if@twocolumn%%
+    \@topnewpage[\@makeschapterhead{#1}]%%
+  \else%%
+    \@makeschapterhead{#1}%%
+    \@afterheading%%
+  \fi%%
 }%%
 %%
 \def\@makeschapterhead#1{%%
-	{%%
-		\parindent \z@ \raggedright \normalfont%%
-		\interlinepenalty\@M%%
-		\large\bfseries\uppercase{#1}\par\nobreak%%
-		\vskip 10mm%%
-	}%%
+  {%%
+    \parindent \z@ \raggedright \normalfont%%
+    \interlinepenalty\@M%%
+    \large\bfseries\uppercase{#1}\par\nobreak%%
+    \vskip 10mm%%
+  }%%
 }%%
 %%
 %%	SECTION - Environment
 %%
 \def\section{%%
-	\@startsection	{section}%%
-			{1}%%
-			{\z@}%%
-			{-3.5ex \@plus -1ex \@minus -.2ex}%%
-			{2.3ex \@plus.2ex}%%
-			{\normalfont\Large\bfseries}%%
+  \@startsection	{section}%%
+      {1}%%
+      {\z@}%%
+      {-3.5ex \@plus -1ex \@minus -.2ex}%%
+      {2.3ex \@plus.2ex}%%
+      {\normalfont\Large\bfseries}%%
 }%%
 %%
 \def\subsection{%%
-	\@startsection	{subsection}%%
-			{2}%%
-			{\z@}%%
-			{-3.25ex\@plus -1ex \@minus -.2ex}%%
-			{1.5ex \@plus .2ex}%%
-			{\normalfont\large\bfseries}%%
+  \@startsection	{subsection}%%
+      {2}%%
+      {\z@}%%
+      {-3.25ex\@plus -1ex \@minus -.2ex}%%
+      {1.5ex \@plus .2ex}%%
+      {\normalfont\large\bfseries}%%
 }%%
 %%
 \def\subsubsection{%%
-	\@startsection	{subsubsection}%%
-			{3}%%
-			{\z@}%%
-			{-3.25ex\@plus -1ex \@minus -.2ex}%%
-			{1.5ex \@plus .2ex}%%
-			{\normalfont\normalsize\bfseries}%%
+  \@startsection	{subsubsection}%%
+      {3}%%
+      {\z@}%%
+      {-3.25ex\@plus -1ex \@minus -.2ex}%%
+      {1.5ex \@plus .2ex}%%
+      {\normalfont\normalsize\bfseries}%%
 }%%
 %%
 \def\paragraph{%%
-	\@startsection	{paragraph}%%
-			{4}%%
-			{\z@}%%
-			{3.25ex \@plus1ex \@minus.2ex}%%
-			{-1em}%%
-			{\normalfont\normalsize\bfseries}%%
+  \@startsection	{paragraph}%%
+      {4}%%
+      {\z@}%%
+      {3.25ex \@plus1ex \@minus.2ex}%%
+      {-1em}%%
+      {\normalfont\normalsize\bfseries}%%
 }%%
 %%
 \def\subparagraph{%%
-	\@startsection	{subparagraph}%%
-			{5}%%
-			{\parindent}%%
-			{3.25ex \@plus1ex \@minus .2ex}%%
-			{-1em}%%
-			{\normalfont\normalsize\bfseries}%%
+  \@startsection	{subparagraph}%%
+      {5}%%
+      {\parindent}%%
+      {3.25ex \@plus1ex \@minus .2ex}%%
+      {-1em}%%
+      {\normalfont\normalsize\bfseries}%%
 }%%
 %%
 %%

@@ -1,5 +1,7 @@
 # My LaTeX !
 
+## Actual version : 1.0.0 at nov, 4 2022
+
 My repository to keep my files **\TeX**.
 
 # Packages

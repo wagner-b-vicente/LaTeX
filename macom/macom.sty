@@ -18,41 +18,8 @@
 %%
 %%	Controle de versão
 %%
-%%	Versão: 0.0.1 - 01/05/2013 - ID: v0.0.1
-%%	The file this class.
-%%
-%%	Versão: 0.0.2 - 19/06/2014 - ID: v0.0.2
-%%	Create default page style to Balaustre.
-%%
-%%	Versão: 0.0.3 - 03/06/2015 - ID: v0.0.3
-%%	Add the utilization of acronym.
-%%
-%%	Versão: 0.0.4 - 14/06/2015 - ID: v0.0.4
-%%	Include a conditional "ifx" on command definition "\Ir#1"
-%%
-%%	Versão: 0.0.5 - 10/07/2015 - ID: v0.0.5
-%%	Inclusão dos padrões da loja capitular "Ricardo Bloise"
-%%
-%%	Versão: 0.0.6 - 12/08/2015 - ID: v0.0.6
-%%	Reorganização das definições no arquivo com limpeza dos comentarios.
-%%
-%%	Versão: 0.0.7 - 10/10/2015 - ID: v0.0.7
-%%	Improve definitions to \Ir and \IIr
-%%
-%%	Versão: 0.0.9 - 07/10/2015 - ID: v0.0.9
-%%	Criação de definições para o Supremo Conselho e Cap. Ricardo Bloise.
-%%
-%%	Versão: 0.1.0 -15/06/2017 - ID: v0.1.0
-%%	Criação de definições para ARLS Danylo Jose Fernandes
-%%
-%%	Versão: 0.1.1 - 28/01/2018 - ID: v0.1.1
-%%	Criação do parametros de definição do corpo filosófico
-%%
-%%	Versão: 0.1.2 - 11/03/2018 - ID: v0.1.2
-%%	Criação do definições para o Ilmo Conselho Kadosch "Jose Caccaos"
-%%
-%%	Versão: 0.1.3 - 25/09/2021 - ID: v0.1.3
-%%	Criação do definições para o Mui Poderoso Consistório "Pitágoras"
+%%  Versão: 1.0.0 - 04/11/2022 - ID: v1.0.0
+%%  Clear oldest versions.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -65,9 +32,9 @@
 %%
 \RequirePackage{xstring}%%
 %%
-\RequirePackage[nolist]{acronym}%%	% V.0.0.3.n
+\RequirePackage[nolist]{acronym}%%
 %%
-\RequirePackage{color}%%		% v0.0.5.n
+\RequirePackage{color}%%
 %%
 \RequirePackage{cjhebrew}%%
 %%
@@ -86,14 +53,15 @@
 \def\TheGADU{\SM{G.A.D.U.}}%%
 %%
 \def\TheExtensoAUTOSAG{Ad Universi Terrarum Orbis Summi Architecti Gloriam}%%
-\def\TheAUTOSAG{\SM{A.U.T.O.S.A.G.}}%%	v0.0.5.n
+%%
+\def\TheAUTOSAG{\SM{A.U.T.O.S.A.G.}}%%
+%%
 \def\TheExtraAUTOSAG{\SM{A\kern 6pt.\kern 6ptU\kern 6pt.\kern 6ptT\kern 6pt.\kern 6ptO\kern 6pt.\kern 6ptS\kern 6pt.\kern 6ptA\kern 6pt.\kern 6ptG\kern 6pt.}}%%
 %%
 \def\TheREAA{\SM{R.E.A.A.}}%%
 %%
 \def\TheGOP{\SM{G.O.P.}}%%
 %%
-%% v.0.0.7.sn
 \def\IrAcronym#1{%%
 	\expandafter\ifx\csname AC@#1\endcsname\AC@used%%
 		\acs{#1}%%
@@ -101,31 +69,50 @@
 		\AC@placelabel{#1}\acl{#1}%%
 	\fi%%
 }%%
-%% HOMOLOGACAO.sn
-%% Definition
-%%  1 ao 02 = Irmão
-%%       03 = Venerável Irmão
-%%  4 ao 18 = Respeitável Irmão
-%% 19 ao 32 = Mui Respeitável Irmão
-%%       33 = Poderoso Irmão
-\def\IrFil[#1]#2{%%
-\ifnum#1>18%%
-  \ifnum#1>32%%
-    Poderoso
-  \else
-    Mui Respeitável
-  \fi
-\else
-  \ifnum#1>3%%
-    Respeitável
-  \else%%
-    \ifnum#1=3%%
-      Venerável
+%%
+\def\TheSingular{s}%%
+\def\ThePlural{p}%%
+\def\TheMasonicTreatmentPronoun#1#2{%%
+  \if\TheSingular#1%%
+    \ifnum#2>18%%
+      \ifnum#2>32%%
+  	    Poderoso
+  	  \else
+  	    Mui Respeitável
+  	  \fi
+    \else%%
+	  \ifnum#2>3%%
+	    Respeitável
+	  \else%%
+	    \ifnum#2=3%%
+		  Venerável
+		\fi%%
+	  \fi%%
     \fi%%
+	Irmão
   \fi%%
-\fi%%
-Irmão \acl{#2} \SM{#1.}%%
+  %%
+  \if\ThePlural#1%%
+    \ifnum#2>18%%
+      \ifnum#2>32%%
+  	    Poderosos
+  	  \else
+  	    Mui Respeitáveis
+  	  \fi
+    \else%%
+	  \ifnum#2>3%%
+	    Respeitáveis
+	  \else%%
+	    \ifnum#2=3%%
+		  Veneráveis
+		\fi%%
+	  \fi%%
+    \fi%%
+	Irmãos
+  \fi%%
 }%%
+%%
+\def\IrFil[#1]#2{\TheMasonicTreatmentPronoun{s}{#1}\acl{#2} \SM{#1.}}%%
 %%
 \def\TheHebrewWord[#1]#2{%%
 	\ifnum#1>0%%
@@ -174,11 +161,8 @@ Irmão \acl{#2} \SM{#1.}%%
 \or Grande Inspetor Geral da Ordem%%
 \fi
 }%%
-%% HOMOLOGACAO.en
 %%
-%\def\Ir{\SM{Ir.}\secdef\@mIr\@sIr}%%
-\def\Ir{%%%
-\SM{Ir.}\secdef\@mIr\@sIr}%%
+\def\Ir{\SM{Ir.}\secdef\@mIr\@sIr}%%
 %%
 \def\@mIr[#1]#2{%%
 	~\IrAcronym{#2}%%
@@ -203,10 +187,20 @@ Irmão \acl{#2} \SM{#1.}%%
 	\def\NextIr{\def\NextIr{\ifnum\the\@MaxLen=\the\@ItemAtual\strAnd\else\strComma\fi}}%%
 	\@for\@ir:=#1\do{\advance\@ItemAtual\@ne\NextIr\IrAcronym\@ir}%%
 }%%
-%% v.0.0.7.en
-%% v.0.0.8.sn
+%%
+\def\IIrFil[#1]#2{%%
+\TheMasonicTreatmentPronoun{p}{#1}%% \acl{#2} \SM{#1.}%%
+\ifx&#2&\else ~ \fi%%
+\@MaxLen\z@%%
+\@ItemAtual\z@%%
+\@for\@aux:=#2\do{\advance\@MaxLen\@ne}%%
+\def\strAnd{~e~}%%
+\def\strComma{,~}%%
+\def\NextIr{\def\NextIr{\ifnum\the\@MaxLen=\the\@ItemAtual\strAnd\else\strComma\fi}}%%
+\@for\@ir:=#2\do{\advance\@ItemAtual\@ne\NextIr\acl\@ir~\SM{#1.}}%%
+}%%
+%%
 \def\VenIr{\SM{Ven.~Ir.}\secdef\@mIr\@sIr}%%
-%% v.0.0.8.en
 %%
 \def\TheVM{\SM{V.M.}}%%
 %%
@@ -218,7 +212,6 @@ Irmão \acl{#2} \SM{#1.}%%
 %%
 \def\TheDiac#1{\Ir*{#1º~ \SM{Diac.}}}%%
 %%
-% \def\TheJob#1{\noindent{\bfseries Trabalho :} #1\vskip 5mm}%%
 \def\TheJob#1{\noindent{\fontsize{13}{1}\selectfont{\bfseries Trabalho :} #1}\vskip 5mm}%%
 %%
 \def\TheExtraJob#1{\noindent{\bfseries Trabalho de quarto de hora :} #1\vskip 5mm}%%
@@ -226,15 +219,6 @@ Irmão \acl{#2} \SM{#1.}%%
 \def\TFA{\SM{T.F.A.}}%%
 %%
 \def\Gr#1{Grau \SM{#1.}}%%
-%%
-%% v.0.0.7.so
-% %% v.0.0.4.sn
-% \def\Ir#1{\SM{Ir.}\ifx&#1&\else ~ #1\fi}%%
-% \def\IrF#1{\SM{Ir.}~ \acl{#1}}%%
-% \def\IrS#1{\SM{Ir.}~ \acs{#1}}%%
-% %% v.0.0.4.en
-% \def\IIr{\SM{IIr.}}%%
-%% v.0.0.7.eo
 %%
 \def\TheSFU{\noindent\begin{center}\SM{F.}\vskip 3mm\SM{S.}\hskip 6.93mm\SM{U.}\end{center}}%%
 %%
@@ -260,8 +244,6 @@ Irmão \acl{#2} \SM{#1.}%%
 %%
 \def\TheApostolosPaulistasImage{\includegraphics[width=34mm]{images/arls-ap.png}}%%
 %%
-% \def\TheAddressStore{Rua Doutor Olavo Egídio, nº 185}%%
-%%
 \def\TheApostolosPaulistasHeader{%%
 	{\fontsize{12}{1}\selectfont%%
 		\TheApostolosPaulistasAcron~\TheApostolosPaulistasName~-~\TheApostolosPaulistasNumber%%
@@ -277,7 +259,7 @@ Irmão \acl{#2} \SM{#1.}%%
 		Rua Doutor Olavo Egídio, nº 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%%
 	}%%
 }%%
-%% v0.0.2.sn
+%%
 \def\ps@PapelTimbradoApostolosPaulistas{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
@@ -295,8 +277,7 @@ Irmão \acl{#2} \SM{#1.}%%
 	\let\@evenhead\@empty%%%
 	\let\@evenfoot\@empty%%%
 }%%
-%% v0.0.2.en
-%% v0.0.5.sn
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%	Definicoes do Supremo Conselho dos Graus Escoceses 4 a 33 para o Brasil
@@ -324,7 +305,7 @@ Irmão \acl{#2} \SM{#1.}%%
 		{\fontsize{07}{1}\selectfont 1ª \uppercase{Região Litúrgica - São Paulo}}\vskip 0pt%%%
 	}%%%
 }%%
-%%{\fontsize{20}{72}\usefont{T1}{bch}{b}{n} Certificado de Frequência (e Tesouraria)}%
+%%
 \def\TheRicardoBloiseFoundation{%%
 	\textcolor{ColorRicardoBloise}{\fontsize{6}{1}\usefont{T1}{phv}{b}{n} Fundado em 06-04-1990}%%
 }%%
@@ -351,8 +332,7 @@ Irmão \acl{#2} \SM{#1.}%%
 	\let\@evenhead\@empty%%%
 	\let\@evenfoot\@empty%%%
 }%%
-%% v0.0.5.en
-%% v0.1.0.sn
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%	Definicoes da Loja Simbolica - Danylo Jose Fernandes
@@ -411,8 +391,7 @@ Irmão \acl{#2} \SM{#1.}%%
 	\let\@evenhead\@empty%%%
 	\let\@evenfoot\@empty%%%
 }%%
-%% v0.1.0.en
-%% v0.1.2.sn
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%	Definicoes do Conselho Filosófico de Cavaleiros Kadosch - Jose Caccaos
@@ -458,8 +437,7 @@ Irmão \acl{#2} \SM{#1.}%%
 	}%%%
 	\let\@evenfoot\@oddfoot%%%
 }%%
-%% v0.1.2.en
-%% v0.1.3.sn
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%	Definicoes do Conselho Filosófico de Cavaleiros Consistório "Pitágoras"
@@ -501,8 +479,6 @@ Irmão \acl{#2} \SM{#1.}%%
 	}%%%
 	\let\@evenfoot\@oddfoot%%%
 }%%
-%% v0.1.3.en
-%% v.0.1.1.sn
 %%
 %%	This configuration will be always the last lines configuration in this file.
 %%
@@ -544,7 +520,7 @@ Irmão \acl{#2} \SM{#1.}%%
 }%%
 %%
 \ProcessOptions\relax%%
-%% v.0.1.1.en
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \endinput
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
