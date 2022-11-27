@@ -73,43 +73,22 @@
 \def\TheSingular{s}%%
 \def\ThePlural{p}%%
 \def\TheMasonicTreatmentPronoun#1#2{%%
-  \if\TheSingular#1%%
-    \ifnum#2>18%%
-      \ifnum#2>32%%
-  	    Poderoso
-  	  \else
-  	    Mui Respeitável
-  	  \fi
-    \else%%
-	  \ifnum#2>3%%
-	    Respeitável
-	  \else%%
-	    \ifnum#2=3%%
-		  Venerável
-		\fi%%
-	  \fi%%
+\ifnum#2>18%%
+  \ifnum#2>32%%
+    Poderoso\if\ThePlural#1s\fi~
+  \else
+    Mui Respeitáve\if\ThePlural#1{is}\else{l}\fi~
+  \fi
+\else%%
+  \ifnum#2>3%%
+    Respeitáve\if\ThePlural#1{is}\else{l}\fi~
+  \else%%
+    \ifnum#2=3%%
+      Veneráve\if\ThePlural#1is\else{l}\fi~
     \fi%%
-	Irmão
   \fi%%
-  %%
-  \if\ThePlural#1%%
-    \ifnum#2>18%%
-      \ifnum#2>32%%
-  	    Poderosos
-  	  \else
-  	    Mui Respeitáveis
-  	  \fi
-    \else%%
-	  \ifnum#2>3%%
-	    Respeitáveis
-	  \else%%
-	    \ifnum#2=3%%
-		  Veneráveis
-		\fi%%
-	  \fi%%
-    \fi%%
-	Irmãos
-  \fi%%
+\fi%%
+Irmão\if\ThePlural#1s\else~\fi
 }%%
 %%
 \def\IrFil[#1]#2{\TheMasonicTreatmentPronoun{s}{#1}\acl{#2} \SM{#1.}}%%
