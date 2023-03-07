@@ -46,6 +46,9 @@
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+\newif\if@timbreimage%%
+\@timbreimagefalse%%
+%%
 \def\myExpandLetters#1#2{\@tfor\myCarater:=#2\do{\myCarater\kern #1}\kern -#1}%%
 %%
 \def\SM#1{\StrSubstitute{#1}{.}{\raise.15ex\hbox{$\therefore$}}}%%
@@ -242,8 +245,12 @@ Irmão\if\ThePlural#1s\else~\fi
 \def\ps@PapelTimbradoApostolosPaulistas{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
+	\if@timbreimage%%
 	\parbox[c]{25mm}{\vskip -2mm\hskip -10mm \TheApostolosPaulistasImage}%%
 	\parbox{\textwidth-25mm}{{\centering\TheApostolosPaulistasHeader\par}}%%
+	\else%%
+	\parbox{\textwidth}{{\centering\TheApostolosPaulistasHeader\par}}%%
+	\fi%%
 	}%%
 %
 	\renewcommand{\@oddfoot}{%%
@@ -298,8 +305,12 @@ Irmão\if\ThePlural#1s\else~\fi
 \def\ps@PapelTimbradoRicardoBloise{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
+	\if@timbreimage%%
 	\parbox[c]{25mm}{\vskip -2mm\hskip -10mm \TheRicardoBloiseImage}%%
 	\parbox{\textwidth-25mm}{{\centering\TheRicardoBloiseHeader\par}}%%
+	\else%%
+	\parbox{\textwidth}{{\centering\TheRicardoBloiseHeader\par}}%%
+	\fi%%
 	}%%
 	\renewcommand{\@oddfoot}{%%
 	\begin{minipage}{\textwidth}%%
@@ -377,7 +388,7 @@ Irmão\if\ThePlural#1s\else~\fi
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-\def\TheJoseCaccaosImage{\includegraphics[width=30mm]{images/kadosch-jose-caccaos.png}}%%
+\def\TheJoseCaccaosImage{\includegraphics[width=34mm]{images/kadosch-jose-caccaos.png}}%%
 %%
 \def\TheJoseCaccaosTitle{\SM{Il.~Ben.~e Benf.~Master Excelso Cons.~Fil.~de CCav.~Kadosch}}%%
 %%
@@ -401,9 +412,12 @@ Irmão\if\ThePlural#1s\else~\fi
 \def\ps@PapelTimbradoJoseCaccaos{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
-%%	\parbox[c]{30mm}{\TheJoseCaccaosImage}%%
+	\if@timbreimage%%
+	\parbox[c]{25mm}{\vskip -2mm\hskip -10mm \TheJoseCaccaosImage}%%
+	\parbox{\textwidth-25mm}{{\centering\TheJoseCaccaosHeader\par}}%%
+	\else%%
 	\parbox{\textwidth}{{\centering\TheJoseCaccaosHeader}}%%
-%%	\centering\TheJoseCaccaosHeader%%
+	\fi%%
 	}%%
 	\let\@evenhead\@empty%%%
 	\renewcommand{\@oddfoot}{%%%
@@ -423,7 +437,7 @@ Irmão\if\ThePlural#1s\else~\fi
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-\def\ThePitagorasImage{\includegraphics[width=30mm]{images/kadosch-jose-caccaos.png}}%%
+\def\ThePitagorasImage{\includegraphics[width=34mm]{images/kadosch-jose-caccaos.png}}%%
 %%
 \def\ThePitagorasName{Pitágoras}%%
 %%
@@ -433,7 +447,7 @@ Irmão\if\ThePlural#1s\else~\fi
 %%
 \def\ThePitagorasHeader{%%
 	\textcolor{ColorPitagoras}{\singlespace%%
-		{\fontsize{14}{1}\selectfont\sc{\TheExtensoAUTOSAG}\vskip 3pt}%%
+		{\fontsize{12}{1}\selectfont\sc{\TheExtensoAUTOSAG}\vskip 3pt}%%
 		{\fontsize{12}{1}\selectfont\ThePitagorasTitle\vskip 3pt}%%
 		{\fontsize{10}{1}\selectfont%%
 			\SM{Subor.}~\TheSupremoConselhoName\vskip 3pt%%
@@ -445,7 +459,12 @@ Irmão\if\ThePlural#1s\else~\fi
 \def\ps@PapelTimbradoPitagoras{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
+	\if@timbreimage%%
+	\parbox[c]{25mm}{\vskip -2mm\hskip -10mm \ThePitagorasImage}%%
+	\parbox{\textwidth-25mm}{{\centering\ThePitagorasHeader\par}}%%
+	\else%%
 	\parbox{\textwidth}{{\centering\ThePitagorasHeader}}%%
+	\fi%%
 	}%%
 	\let\@evenhead\@empty%%%
 	\renewcommand{\@oddfoot}{%%%
@@ -496,6 +515,10 @@ Irmão\if\ThePlural#1s\else~\fi
 	\pagestyle{PapelTimbradoPitagoras}%%
 	\let\TheDefaultSalutation\TheLuxPopuliDei%%
 	\def\TheDefaultLocation{Acampamento}%%
+}%%
+%%
+\DeclareOption{timbre}{%%
+\@timbreimagetrue%%
 }%%
 %%
 \ProcessOptions\relax%%
