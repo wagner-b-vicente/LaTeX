@@ -78,23 +78,23 @@
 \def\TheMasonicTreatmentPronoun#1#2{%%
 \ifnum#2>18%%
   \ifnum#2>32%%
-    Poderoso\if\ThePlural#1s\fi~
+    Poderoso\if\ThePlural#1{s}\fi
   \else
-    Mui Respeitáve\if\ThePlural#1{is}\else{l}\fi~
+    Mui Respeitáve\if\ThePlural#1{is}\else{l}\fi
   \fi
 \else%%
   \ifnum#2>3%%
-    Respeitáve\if\ThePlural#1{is}\else{l}\fi~
+    Respeitáve\if\ThePlural#1{is}\else{l}\fi
   \else%%
     \ifnum#2=3%%
-      Veneráve\if\ThePlural#1is\else{l}\fi~
+      Veneráve\if\ThePlural#1{is}\else{l}\fi
     \fi%%
   \fi%%
 \fi%%
-Irmão\if\ThePlural#1s\else~\fi
+~Irmão\if\ThePlural#1{s}\fi
 }%%
 %%
-\def\IrFil[#1]#2{\TheMasonicTreatmentPronoun{s}{#1}\acl{#2} \SM{#1.}}%%
+\def\IrFil[#1]#2{\TheMasonicTreatmentPronoun{s}{#1}~\acl{#2} \SM{#1.}}%%
 %%
 \def\TheHebrewWord[#1]#2{%%
 	\ifnum#1>0%%
@@ -396,9 +396,9 @@ Irmão\if\ThePlural#1s\else~\fi
 %%
 \def\TheJoseCaccaosHeader{%%
 	{\singlespace%%
-		{\fontsize{12}{1}\selectfont\TheExtraAUTOSAG\vskip 3pt}%%
+		{\vskip -3pt\fontsize{12}{1}\selectfont\TheExtraAUTOSAG\vskip 9pt}%%
 		{\fontsize{10,5}{1}\selectfont%%
-			\TheJoseCaccaosTitle\vskip 3pt%%
+			\negrito{\TheJoseCaccaosTitle}\vskip 3pt%%
 			\negrito{\aspas{\TheJoseCaccaosName}}\vskip 3pt%%
 		}%%
 		{\fontsize{8}{1}\selectfont%%
