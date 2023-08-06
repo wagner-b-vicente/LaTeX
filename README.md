@@ -13,6 +13,7 @@ All packages that I need to edit my **\LaTeX** environment.
 Standards for formatting academic documents. See the page [ABNTeX_2](https://www.abntex.net.br/ "ABNTeX")
 
 > `# cd /usr/share/texmf`
+>
 > `# tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
 
 ## Normal
@@ -20,6 +21,7 @@ Standards for formatting academic documents. See the page [ABNTeX_2](https://www
 Development to assist with $\LaTeX$ documents.
 
 >`# cd /usr/share/texmf/tex/latex`
+>
 >`# ln -s /home/wagner/GitHub/LaTeX/normal`
 
 ## Macom
