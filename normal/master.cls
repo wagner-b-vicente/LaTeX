@@ -235,6 +235,17 @@
   \fi%%
 }%%
 %%
+\def\ps@MyBookPage{%%
+  \let\@oddhead\@empty%%
+  \let\@evenhead\@empty%%
+  \def\@oddfoot{\hfill{\small\thepage}}%%
+  \if@twoside%%
+    \def\@evenfoot{{\small\thepage}\hfill}%%
+  \else%%
+  	\let\@evenfoot\@oddfoot%%%
+  \fi
+}%%
+%%
 \def\ps@emptypage{%%
   \let\@oddfoot\@empty%%
   \let\@evenfoot\@empty%%
