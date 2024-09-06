@@ -401,13 +401,20 @@
 %%
 \def\TheDanyloJoseFernandesNumber{nº 90}%%
 %%
-\def\TheDanyloJoseFernandesImage{\includegraphics[width=25mm]{images/arls-djf.png}}%%
+\def\TheDanyloJoseFernandesImage{\includegraphics[width=34mm]{images/arls-djf.png}}%%
 %%
 \definecolor{ColorDanyloJoseFernandes}{rgb}{.58,.21,.20}%% ( 148, 54, 52 )
 %%
 \def\TheDanyloJoseFernandesHeader{%%
-	\vspace*{5mm}\noindent\makebox[\textwidth]{{\color{ColorDanyloJoseFernandes}\rule{\textwidth}{15mm}}}\par%%
-	\vspace*{-20mm}\hspace{-\textwidth}\hspace{65mm}\noindent\TheDanyloJoseFernandesImage%%
+	{\fontsize{10}{1}\selectfont%%
+		\TheDanyloJoseFernandesAcron~\TheDanyloJoseFernandesName~-~\TheDanyloJoseFernandesNumber%%
+	}\vskip 2mm%%
+	{\fontsize{8}{1}\selectfont%%
+		Filiada ao Grande Oriente Paulista (\negrito{GOP}),\vskip 1.5mm%%
+		Integrante da Confederação Maçônica do Brasil (\negrito{COMAB}) e da\vskip -1.5mm%%
+		Confederação Maçônica Interamericana (\negrito{CMI})%%%
+	}%%
+
 }%%
 %%
 \def\TheDanyloJoseFernandesFooter{%%
@@ -430,22 +437,34 @@
 \def\ps@PapelTimbradoDanyloJoseFernandes{%%
 	\renewcommand{\@oddhead}{%%
 	\noindent%%
-	\begin{minipage}{\textwidth}%%
-		\begin{center}%%
-			\TheDanyloJoseFernandesHeader%%\par%%
-		\end{center}%%
-	\end{minipage}%%
+	\if@timbreimage%%
+		\hspace{-30mm}\colorbox{ColorDanyloJoseFernandes}{\parbox[c][25mm]{210mm}{
+		\hspace{20mm}\parbox[c]{30mm}{\TheDanyloJoseFernandesImage}%%
+		\parbox{\textwidth-30mm}{\vspace{3mm}{\centering\textcolor{white}{\TheDanyloJoseFernandesHeader}}\vspace{3mm}}%%
+		}}
+	\else%%
+		\hspace{-30mm}\colorbox{ColorDanyloJoseFernandes}{\parbox[c][25mm]{210mm}{%%
+			\hspace{30mm}\parbox{\textwidth}{\vspace{3mm}{\centering\textcolor{white}{\TheDanyloJoseFernandesHeader}}\vspace{3mm}}%%
+		}}%%
+	\fi%%
 	}%%
 	\renewcommand{\@oddfoot}{%%
-	\noindent%%
+	\noindent
 	\begin{minipage}{\textwidth}%%
 		\begin{center}%%
-			\textcolor{ColorDanyloJoseFernandes}{\TheDanyloJoseFernandesFooter}%%
+			\textcolor{ColorDanyloJoseFernandes}{{\fontsize{8}{1}\selectfont\thepage}\TheDanyloJoseFernandesAddress}%%
 		\end{center}%%
 	\end{minipage}%%
 	}%%
 	\let\@evenhead\@empty%%%
-	\let\@evenfoot\@empty%%%
+	\renewcommand{\@evenfoot}{%%
+	\noindent
+	\begin{minipage}{\textwidth}%%
+		\begin{center}%%
+			\textcolor{ColorDanyloJoseFernandes}{{\fontsize{8}{1}\selectfont\thepage}}%%
+		\end{center}%%
+	\end{minipage}%%
+	}%%
 }%%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
