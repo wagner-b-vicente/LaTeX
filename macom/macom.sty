@@ -323,11 +323,20 @@
 	\begin{minipage}{\textwidth}%%
 		\begin{center}%%
 			\TheApostolosPaulistasAddress%%
+			\vskip -22pt\hfill{\fontsize{8}{1}\selectfont\thepage}%%
 		\end{center}%%
 	\end{minipage}%%
 	}%%
 	\let\@evenhead\@empty%%%
-	\let\@evenfoot\@empty%%%
+	% \let\@evenfoot\@empty%%%
+	\renewcommand{\@evenfoot}{%%
+	\noindent
+	\begin{minipage}{\textwidth}%%
+		% \begin{center}%%
+			{\fontsize{8}{1}\selectfont\thepage}%%
+		% \end{center}%%
+	\end{minipage}%%
+	}%%
 }%%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
