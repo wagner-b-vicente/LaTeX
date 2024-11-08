@@ -12,6 +12,16 @@ All packages that I need to edit my **\LaTeX** environment.
 
 Standards for formatting academic documents. See the page [ABNTeX_2](https://www.abntex.net.br/ "ABNTeX")
 
+Caso exista no repositório do Linux:
+
+> `# sudo zypper se texlive-abntex`
+>
+> `# sudo zypper in texlive-abntex2`
+
+Caso *não exista* seguir as orientação e download em [ABNTeX_2 Installation](https://github.com/abntex/abntex2/wiki/Instalacao).
+
+Ou fazer dowload diretamente do site [CTAN](https://www.ctan.org/pkg/abntex2) e seguir os comandos abaixo:
+
 > `# cd /usr/share/texmf`
 >
 > `# tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
