@@ -2,11 +2,11 @@
 
 ## Actual version : 1.0.0 at nov, 4 2022
 
-My repository to keep my files **\TeX**.
+My repository to keep my files $\TeX$.
 
 # Packages
 
-All packages that I need to edit my **\LaTeX** environment.
+All packages that I need to edit my $\LaTeX$ environment.
 
 ## Installation non default packages
 
@@ -40,7 +40,7 @@ Or, take it package from [CTAN](https://www.ctan.org/pkg/abntex2) and execute th
 
 ## Normal
 
-Development to assist with **\LaTeX** documents.
+Development to assist with $\LaTeX$ documents.
 
 >`# cd /usr/share/texmf/tex/latex`
 >
@@ -56,7 +56,7 @@ Structure for the works of the Masonic Lodge.
 
 ## XString
 
-Routines for *strings* treatments inside **\LaTeX**.
+Routines for *strings* treatments inside $\LaTeX$.
 
 > `# cd /usr/share/texmf/tex/latex`
 >
