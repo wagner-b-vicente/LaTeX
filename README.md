@@ -8,31 +8,43 @@ My repository to keep my files **\TeX**.
 
 All packages that I need to edit my **\LaTeX** environment.
 
+## Installation non default packages
+
+> `# sudo zypper in texlive-acronym`
+>
+> `# sudo zypper in texlive-cjhebrew`
+>
+> `# sudo zypper in texlive-doublestroke`
+
 ##  ABNTeX2
 
 Standards for formatting academic documents. See the page [ABNTeX_2](https://www.abntex.net.br/ "ABNTeX")
 
-Caso exista no repositório do Linux:
+Case 1:
+
+    There is package in Linux repository:
 
 > `# sudo zypper se texlive-abntex`
 >
 > `# sudo zypper in texlive-abntex2`
 
-Caso *não exista* seguir as orientação e download em [ABNTeX_2 Installation](https://github.com/abntex/abntex2/wiki/Instalacao).
+Case 2:
 
-Ou fazer dowload diretamente do site [CTAN](https://www.ctan.org/pkg/abntex2) e seguir os comandos abaixo:
+There **is not** package in Linux repository. Follow the below instructions and download package in [ABNTeX_2](https://github.com/abntex/abntex2/wiki/Instalacao).
+
+Or, take it package from [CTAN](https://www.ctan.org/pkg/abntex2) and execute the below commands:
 
 > `# cd /usr/share/texmf`
 >
-> `# tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
+> `# sudo tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
 
 ## Normal
 
-Development to assist with $\LaTeX$ documents.
+Development to assist with **\LaTeX** documents.
 
 >`# cd /usr/share/texmf/tex/latex`
 >
->`# ln -s /home/wagner/GitHub/LaTeX/normal`
+>`# sudo ln -s /home/wagner/GitHub/LaTeX/normal`
 
 ## Macom
 
@@ -40,15 +52,17 @@ Structure for the works of the Masonic Lodge.
 
 >`# cd /usr/share/texmf/tex/latex`
 >
->`# ln -s /home/wagner/GitHub/LaTeX/macom`
+>`# sudo ln -s /home/wagner/GitHub/LaTeX/macom`
 
 ## XString
 
 Routines for *strings* treatments inside **\LaTeX**.
 
 > `# cd /usr/share/texmf/tex/latex`
-> `# ln -s /home/wagner/LaTeX/xstring`
+>
+> `# sudo ln -s /home/wagner/LaTeX/xstring`
 
+<!---
 ## Suffix / Bigfoot
 
 Tools to improve Acronym.
@@ -66,13 +80,14 @@ Responsible for printing Hebrew characters.
 Check if necessary to install the package `oberdiek`.
 
 > `# upmap-sys --enable Map=cjhebrew.map`
-
+--->
 # Updates
 
 It is necessary to execute the command below, after any update of the $\LaTeX$ environment.
 
 > `# texhash`
 
+<!---
 # Install extras fonts
 
 ## Fonts Initials
@@ -140,3 +155,4 @@ Step 11.
 
 Step 12.
 > `# updmap-sys --enable Map=RoyalIn.map`
+--->
