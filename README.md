@@ -15,6 +15,10 @@ All packages that I need to edit my $\LaTeX$ environment.
 > `# sudo zypper in texlive-cjhebrew`
 >
 > `# sudo zypper in texlive-doublestroke`
+>
+> `# sudo zypper in texlive-fontsetup`
+>
+> `# sudo zypper in texlive-fontsize`
 
 ##  ABNTeX2
 
@@ -62,6 +66,78 @@ Routines for *strings* treatments inside $\LaTeX$.
 >
 > `# sudo ln -s /home/wagner/LaTeX/xstring`
 
+# Updates
+
+It is necessary to execute the command below, after any update of the $\LaTeX$ environment.
+
+> `# texhash`
+
+# Install extras fonts
+
+The root directory is `/usr/share/texmf`
+
+## Fonts Initials
+
+### Directory structure
+
+In root directory will be create the following structure:
+
+> `# cd /usr/share/texmf`
+>
+> `/usr/share/texmf #`
+
+**Step 1:**
+
+Will create the directory `/usr/share/texmf/tex/latex/initials` if there is not exist.
+
+> `mkdir -p /usr/share/texmf/tex/latex/initials`
+
+After this creation, all `<file>.MAP` will be copy there.
+
+**Step 2:**
+
+Will create the structure directories `/usr/share/texmf/fonts/{afm,map,tfm,type1}/initials` if there is not exist.
+
+> `mkdir -p /usr/share/texmf/fonts/{afm,map,tfm,type1}/initials`
+
+**Step 3:**
+
+Download the zip file from site [$\LaTeX$ Fonts Initials](https://www.ctan.org/tex-archive/fonts/initials/ "Fonts Initials")
+
+Uncompress the zip file in a temporary directory, for example: `/tmp/Fonts-Initials`
+
+> `/tmp/Fonts-Initials # unzip /home/wagner/Trash/initials.zip`
+
+**Step 4:**
+
+Copy all `.fd` and `config.<font>` to the directory `/usr/share/texmf/tex/latex/initials`.
+
+> `/tmp/Fonts-Initials # cp initials/*.fd /usr/share/texmf/tex/latex/initials/.`
+>
+> `/tmp/Fonts-Initials # cp initials/config.* /usr/share/texmf/tex/latex/initials/.`
+
+**Step 5:**
+
+Copy all `.afm`, `.map`, `.tfm`, and `.type1` to respective directory in `/usr/share/texmf/fonts`.
+
+> `/tmp/Fonts-Initials # cp initials/*.afm /usr/share/texmf/fonts/afm/initials/.`
+>
+> `/tmp/Fonts-Initials # cp initials/*.map /usr/share/texmf/fonts/map/initials/.`
+>
+> `/tmp/Fonts-Initials # cp initials/*.tfm /usr/share/texmf/fonts/tfm/initials/.`
+>
+> `/tmp/Fonts-Initials # cp initials/*.pfb /usr/share/texmf/fonts/type1/initials/.`
+
+**Step 6:**
+
+Update the $\LaTeX$ environment:
+
+> `cd /usr/share/texmf/fonts/map/initials`
+>
+> `for MYMAP in $(ls) ; do updmap-sys --enable Map=$MYMAP ; done`
+> 
+> `# texhash`
+
 <!---
 ## Suffix / Bigfoot
 
@@ -80,79 +156,4 @@ Responsible for printing Hebrew characters.
 Check if necessary to install the package `oberdiek`.
 
 > `# upmap-sys --enable Map=cjhebrew.map`
---->
-# Updates
-
-It is necessary to execute the command below, after any update of the $\LaTeX$ environment.
-
-> `# texhash`
-
-<!---
-# Install extras fonts
-
-## Fonts Initials
-
-[$\LaTeX$ Fonts Initials](https://tug.org/FontCatalogue/otherfonts.html "Fonts Initials")
-
-### Directory structure
-
-> `# cd /usr/share/texmf`
-
-
-tex-local
-```
- \-> /tex/latex => criar tug/initials (manter os arquivos *.FD)
- ...
- \-> /fonts
-	\-> afm		\			              /	*.AFM
-	\-> map		 \			             /	*.MAP
-                  > criar tug/initials	<
-	\-> tfm		 /			             \	*.TFM
-	\-> type1	/			              \	*.PFB
-```
-
-Step 00.
-mkdir /tmp/font.latex ; cd /tmp/font.latex ; unzip ~/Downloads/initials.zip
-
-Step 01.
-> `# cd /usr/share/texmf`
-
-Step 02.
->`# mkdir -p tex/latex/tug/initials fonts/{afm,map,tfm,type1}/tug/initials`
-
-Step 03.
-> `# cd tex/latex/tug/initials/`
-
-Step 04.
-> `# mv /tmp/font.latex/initials/*.fd .`
-
-Step 05.
-> `# mv /tmp/font.latex/initials/config.* .`
-
-Step 06.
-> `# cd ../../../../fonts/afm/tug/initials/`
-
-Step 07.
-> `# mv /tmp/font.latex/initials/*.afm .`
-
-Step 08.
-> `# cd ../../../map/tug/initials/`
-
-Step 09.
-> `# mv /tmp/font.latex/initials/*.map .`
-
-Step 10.
-> `# cd ../../../tfm/tug/initials/`
-
-Step 11.
-> `# mv /tmp/font.latex/initials/*.tfm .`
-
-Step 12.
-> `# cd ../../../type1/tug/initials/`
-
-Step 11.
-> `# mv /tmp/font.latex/initials/*.pfb .`
-
-Step 12.
-> `# updmap-sys --enable Map=RoyalIn.map`
 --->
