@@ -1,6 +1,6 @@
 # My LaTeX !
 
-## Actual version : 1.0.0 at nov, 4 2022
+## Actual version : 2.0.0 at jan, 27 2025
 
 My repository to keep my files $\TeX$.
 
@@ -42,21 +42,13 @@ Or, take it package from [CTAN](https://www.ctan.org/pkg/abntex2) and execute th
 >
 > `# sudo tar xzf /home/wagner/LaTeX/abntex2.tds-1.9.7.tar.gz`
 
-## Normal
-
-Development to assist with $\LaTeX$ documents.
-
->`# cd /usr/share/texmf/tex/latex`
->
->`# sudo ln -s /home/wagner/GitHub/LaTeX/normal`
-
 ## Macom
 
 Structure for the works of the Masonic Lodge.
 
 >`# cd /usr/share/texmf/tex/latex`
 >
->`# sudo ln -s /home/wagner/GitHub/LaTeX/macom`
+>`# sudo ln -s /home/wagner/GitHub/LaTeX/masonic`
 
 ## XString
 
