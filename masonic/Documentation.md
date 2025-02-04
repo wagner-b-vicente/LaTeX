@@ -69,7 +69,7 @@ Agora teremos uma definição para dia, mês e ano de modo a facilitar e central
 
 Em composição as definições acima teremos agora `\nomeMes` e `\diaCardinal`:
 
-O `\nomeMes` escreverá o nome completo do mês atribuído na definição `\mes`, assim como, o `\diaCardinal` escreverá os números cardinais que estiverem atribuídos nadefinição `\dia`. **Observação** deverão ser informados somente os números válidos para um dia, ou seja, valores entre '0' (zero) e '31' (trinta e um).
+O `\nomeMes` escreverá o nome completo do mês atribuído na definição `\mes`, assim como, o `\diaCardinal` escreverá os números cardinais que estiverem atribuídos nadefinição `\dia`. **Observação** deverão ser informados somente os números válidos para um dia, ou seja, valores entre '1' (um) e '31' (trinta e um), assim como, para o mês os valores entre '1' (um) e '12' (doze).
 
 por exemplo:
 
