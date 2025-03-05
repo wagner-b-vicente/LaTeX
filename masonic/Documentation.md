@@ -36,7 +36,9 @@ Header and footer defines : [ arlsap, arlsdjf, sccrcrb, kadoshjc, consistorio ]
 
 Conditional to add or not the logo in the header : [ timbre ]
 
-On line 02, the declaration of the *`graphicspath`* command is mandatory.
+> [!IMPORTANT]
+> On line 02, the declaration of the *`graphicspath`* command is mandatory.
+
 
 ## Page Styles
 
@@ -69,7 +71,10 @@ Agora teremos uma definição para dia, mês e ano de modo a facilitar e central
 
 Em composição as definições acima teremos agora `\nomeMes` e `\diaCardinal`:
 
-O `\nomeMes` escreverá o nome completo do mês atribuído na definição `\mes`, assim como, o `\diaCardinal` escreverá os números cardinais que estiverem atribuídos nadefinição `\dia`. **Observação** deverão ser informados somente os números válidos para um dia, ou seja, valores entre '1' (um) e '31' (trinta e um), assim como, para o mês os valores entre '1' (um) e '12' (doze).
+O `\nomeMes` escreverá o nome completo do mês atribuído na definição `\mes`, assim como, o `\diaCardinal` escreverá os números cardinais que estiverem atribuídos nadefinição `\dia`.
+
+> [!CAUTION]
+> **Deverão ser informados somente os números válidos para um dia, ou seja, valores entre '1' (um) e '31' (trinta e um), assim como, para o mês os valores entre '1' (um) e '12' (doze).**
 
 por exemplo:
 
@@ -89,16 +94,14 @@ As seguintes definições são auto-explicativas:
 
 `\aspas{#1}`, `\aspassimples{#1}`, `\italico{#1}`, `\negrito{#1}` e `\sublinhado{#1}`.
 
-\aspas{teste}               -> "teste"
-
-\aspassimples{outro teste}  -> 'outro teste'
-
-\italico{testando!!!}       -> *testando!!!*
-
-\negrito{testando!!!}       -> **testando!!!**
-
-\sublinhado{testando!!!}    -> <ins>testando!!!</ins>
-
+> [!NOTE]
+> | Command | Result |
+> |--- |--- |
+> | \aspas{teste} | "teste" |
+> | \aspassimples{outro teste} | 'outro teste' |
+> | \italico{testando!!!} | *testando!!!* |
+> | \negrito{testando!!!} | **testando!!!** |
+> | \sublinhado{testando!!!} | <ins>testando!!!</ins> |
 
 ## \citação{#1}{#2} e \begin{citdao} ... \end{citado}
 
@@ -107,6 +110,20 @@ As definições `\citação{#1}{#2}` e `\begin{citdao} ... \end{citado}` serão 
 ## \TheJob#1, \Titulo{#1} e \Secao{#1}
 
 As definições `\Titulo{#1}` e `\Secao{#1}` foram criadas para simplicar o uso de um padrão para definir como o Título  e/ou Capítulo de um texto está formatado, assim como, uma Seção e/ou sub-capítulo.
+
+## \BlankLines
+
+Esta definição inseri linhas em branco em uma tabela. Esta definição receberá dois parâmetros obrigatórios:
+
+### 1st parameter: Quantity Lines
+
+### 2nd parameter: The Column Structure
+
+```
+\BlankLines{40}{ & & & };
+or
+\BlankLines{20}{ & };
+```
 
 ## \TheHebrewWord
 
@@ -192,8 +209,6 @@ O parâmetro de input é o Grau o qual retornará o nome (ou descrição).
 ``\IrFil[2]{QQ Coisa que digitar aqui escreverá lá}``
 
 ``Irmão QQ Coisa que digitar aqui escreverá lá, C.M.``
-
-
 
 ## \IIr[#1]{#2}
 

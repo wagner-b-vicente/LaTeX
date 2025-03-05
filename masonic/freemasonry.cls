@@ -66,6 +66,9 @@
 \RequirePackage{amssymb}%             	%
 \RequirePackage[pdftex]{graphicx}%      %
 \RequirePackage[table]{xcolor}%         %
+\RequirePackage{longtable}%             % Allow tables to flow over page boundaries
+\RequirePackage{forloop}%               % Iteration in LaTeX
+\RequirePackage{xparse}%                % A generic document command parser
 %
 % \RequirePackage[mathscr]{eucal}%      %% New calligraphic letters
 % \RequirePackage{ifthen}%              %% Conditional commands in LaTeX documents
@@ -195,13 +198,26 @@
 \let\endcitado\endlist%
 
 %
+%  Create a new counter to add in list or order things.
+\newcounter{theFreemasonryCounter}%
+\def\ShowSequenceNumber{\stepcounter{theFreemasonryCounter}\theFreemasonryCounter}%
+
+%
+%  This definitions add Blanks lines in a table
+\ExplSyntaxOn%
+\DeclareExpandableDocumentCommand{\BlankLines}{m m}{%
+  \prg_replicate:nn { #1 } {\hline #2 \\[5pt]}%
+}%
+\ExplSyntaxOff%
+
+%
 \def\Titulo#1{\vskip 15pt\noindent{\fontsize{14}{1}\selectfont\sc #1 \vskip 3pt}}%
 
 %
 \def\Secao#1{\vskip 5mm\noindent{\fontsize{13}{1}\selectfont\negrito{#1}}\vskip 3mm}%
 
 %
-%   Masonic Treatment Pronoun
+%   Words in Hebrew characters
 %   Input parameters:
 %   #1  - only a number to define <fontsize>
 %   #2  - string to be write in hebrew characters
@@ -211,9 +227,9 @@
 }%
 
 %
-%   Masonic Treatment Pronoun
+%   Letter Expander
 %   Input parameters:
-%   #1  - size to input in \kern command
+%   #1  - size to input in \kern command distance between letters
 %   #2  - string or word
 %------------------------------------------------------------------------------   
 \def\LetterExpander[#1]#2{\makeatletter\@tfor\EachLetter:=#2\do{\EachLetter\kern #1pt}}%
@@ -243,7 +259,8 @@
 %   Input parameters:
 %   #1  - Acronym or (Sigla)
 %------------------------------------------------------------------------------
-\def\SM#1{\StrSubstitute{#1}{.}{\raise.15ex\hbox{$\therefore$}}}%
+\def\SM#1{\StrSubstitute{#1}{\oneDot}{\threeDots}}%
+% \def\SM#1{\StrSubstitute{#1}{.}{\raise.15ex\hbox{$\therefore$}}}%
 % \def\SM#1{\makeatletter%
 %   \@tfor\EachLetter:=#1\do{\ifx\EachLetter\oneDot\threeDots\else\EachLetter\fi}%
 % }%
@@ -277,8 +294,8 @@
     \fi%
   \fi%
 \fi%
-Irmão\if\ThePlural#1{s}\fi
-}%%
+Irmão\if\ThePlural#1{s}\fi%
+}%
 
 %
 %   Degree acronym
@@ -621,7 +638,7 @@ Irmão\if\ThePlural#1{s}\fi
 %   Higher Degree - Conselho Filosófico de Cavaleiros Kadosh - JOSÉ CACCÁOS
 %
 %------------------------------------------------------------------------------
-\def\TheExtraAUTOSAG{\SM{A\kern 6pt .\kern 6pt U\kern 6pt .\kern 6pt T\kern 6pt .\kern 6pt O\kern 6pt .\kern 6pt S\kern 6pt .\kern 6pt A\kern 6pt .\kern 6pt G\kern 6pt .}}%%
+\def\TheExtraAUTOSAG{\SM{A\kern 6pt .\kern 6pt U\kern 6pt .\kern 6pt T\kern 6pt .\kern 6pt O\kern 6pt .\kern 6pt S\kern 6pt .\kern 6pt A\kern 6pt .\kern 6pt G\kern 6pt .}}%
 
 \def\TheJoseCaccaosImage{\includegraphics[width=34mm]{kadosh-jose-caccaos.png}}%
 %
@@ -671,7 +688,7 @@ Irmão\if\ThePlural#1{s}\fi
 %   Higher Degree - Consistório PITAGORAS de Principes do Real Segredo
 %
 %------------------------------------------------------------------------------
-\def\ThePitagorasImage{\includegraphics[width=34mm]{kadosh-jose-caccaos.png}}%
+\def\ThePitagorasImage{\includegraphics[width=34mm]{consistorio-pitagoras.png}}%
 %
 \def\ThePitagorasName{Pitágoras}%
 %
