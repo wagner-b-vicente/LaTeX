@@ -199,8 +199,8 @@
 
 %
 %  Create a new counter to add in list or order things.
-\newcounter{theFreemasonryCounter}%
-\def\ShowSequenceNumber{\stepcounter{theFreemasonryCounter}\theFreemasonryCounter}%
+\newcounter{FreemasonryCounter}%
+\def\ShowSequenceNumber{\stepcounter{FreemasonryCounter}\theFreemasonryCounter}%
 
 %
 %  This definitions add Blanks lines in a table
