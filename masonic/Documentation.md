@@ -111,18 +111,18 @@ As definições `\citação{#1}{#2}` e `\begin{citdao} ... \end{citado}` serão 
 
 As definições `\Titulo{#1}` e `\Secao{#1}` foram criadas para simplicar o uso de um padrão para definir como o Título  e/ou Capítulo de um texto está formatado, assim como, uma Seção e/ou sub-capítulo.
 
-## \BlankLines
+## \AddBlankRowsToTable
 
 Esta definição inseri linhas em branco em uma tabela. Esta definição receberá dois parâmetros obrigatórios:
 
 ### 1st parameter: Quantity Lines
 
-### 2nd parameter: The Column Structure
+### 2nd parameter: The Table's Column Structure
 
 ```
-\BlankLines{40}{ & & & };
+\AddBlankRowsToTable{40}{ & & & }
 or
-\BlankLines{20}{ & };
+\AddBlankRowsToTable{20}{ & }
 ```
 
 ## \TheHebrewWord

@@ -205,7 +205,7 @@
 %
 %  This definitions add Blanks lines in a table
 \ExplSyntaxOn%
-\DeclareExpandableDocumentCommand{\BlankLines}{m m}{%
+\DeclareExpandableDocumentCommand{\AddBlankRowsToTable}{m m}{%
   \prg_replicate:nn { #1 } {\hline #2 \\[5pt]}%
 }%
 \ExplSyntaxOff%
