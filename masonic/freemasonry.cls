@@ -251,7 +251,7 @@
 \def\strAnd{~e~}%
 \def\strComma{,~}%
 %
-\xdef\threeDots{\raise .15ex \hbox{$\therefore$}}%
+\xdef\threeDots{\raise .15ex\hbox{$\therefore$}}%
 \xdef\oneDot{.}%
 
 %
@@ -279,18 +279,20 @@
 %   #2  - Degree number
 %------------------------------------------------------------------------------
 \def\TheMasonicTreatmentPronoun#1#2{%
-\ifnum#2>18%
-  \ifnum#2>32%
-    Poderoso\if\ThePlural#1{s}\fi~%
+\if#2M\else%
+  \ifnum#2>18%
+    \ifnum#2>32%
+      Poderoso\if\ThePlural#1{s}\fi~%
+    \else%
+      Mui Respeitáve\if\ThePlural#1{is}\else{l}\fi~%
+    \fi%
   \else%
-    Mui Respeitáve\if\ThePlural#1{is}\else{l}\fi~%
-  \fi%
-\else%
-  \ifnum#2>3%
-    Respeitáve\if\ThePlural#1{is}\else{l}\fi~%
-  \else%
-    \ifnum#2=3%
-      Veneráve\if\ThePlural#1{is}\else{l}\fi~%
+    \ifnum#2>3%
+      Respeitáve\if\ThePlural#1{is}\else{l}\fi~%
+    \else%
+      \ifnum#2=3%
+        Veneráve\if\ThePlural#1{is}\else{l}\fi~%
+      \fi%
     \fi%
   \fi%
 \fi%
@@ -304,12 +306,13 @@ Irmão\if\ThePlural#1{s}\fi%
 %------------------------------------------------------------------------------
 \def\TheDegreeAcronyms#1{%
 % \ifnum#1=33$\vcenter{\hbox{\includegraphics[scale=0.12]{Pin33.png}}}$\else%
-  \ifnum#1=1\SM{A.M.}\else%
-    \ifnum#1=2\SM{C.M.}\else%
-      \ifnum#1=3\SM{M.M.}\else\SM{#1.}\fi%
+  \if#1M\SM{M.M.}\else%
+    \ifnum#1=1\SM{A.M.}\else%
+      \ifnum#1=2\SM{C.M.}\else%
+        \ifnum#1=3\SM{M.M.}\else\SM{#1.}\fi%
+      \fi%
     \fi%
   \fi%
-% \fi%
 }%
 
 %
@@ -410,7 +413,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\SymbolicSalutation{%
 \centerline{\sc{À Glória do Grande Arquiteto do Universo}}\par\vskip 12pt%
-\centerline{\SM{V.M.}~--~\SM{1º Vig.}~--~\SM{2º Vig.}~--~\SM{OOf.}~--~\italico{Past Master}~--~Meus \IIr[1]{}}%
+\centerline{\SM{V.M.}~--~\SM{1º Vig.}~--~\SM{2º Vig.}~--~\SM{OOf.}~--~\italico{Past Master}~--~Meus Irmãos}%
 }%
 
 %------------------------------------------------------------------------------
@@ -461,7 +464,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\TheApostolosPaulistasAddress{%
 	\singlespace{\fontsize{8}{1}\selectfont%
-		Rua Doutor Olavo Egídio, nº 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%
+		Rua Doutor Olavo Egídio, 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%
 	}%
 }%
 %
@@ -544,7 +547,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\TheDanyloJoseFernandesAddress{%
 	\singlespace{\fontsize{8}{1}\selectfont%
-		Rua Doutor Olavo Egídio, nº 185 -- Santana -- São Paulo -- SP%
+		Rua Doutor Olavo Egídio, 185 -- Santana -- São Paulo -- SP%
 	}%
 }%
 %
@@ -608,7 +611,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\TheRicardoBloiseAddress{%
 	\singlespace{\fontsize{8}{1}\selectfont%
-		Rua Doutor Olavo Egídio, nº 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%
+		Rua Doutor Olavo Egídio, 185 - Santana\vskip -6pt São Paulo - SP - CEP 02037-000%
 	}%
 }%
 %
@@ -730,6 +733,55 @@ Irmão\if\ThePlural#1{s}\fi%
 }%
 %
 
+%
+%   Higher Degree - Preceptório de Cavaleiros Templários
+%
+%------------------------------------------------------------------------------
+%
+\def\TheGPBName{Grande Priorado do Brasil das Ordens Unidas Religiosas, Militares e Maçônicas do Templo e de São João de Jerusalém, Palestina Rodes e Malta}%
+%
+\def\TheSPPiratiningaImage{\includegraphics[height=35mm]{preceptorio-sp-piratininga.png}}%
+%
+\def\TheSPPiratiningaName{\aspas{São Paulo de Piratininga}~-- nº 18}%
+%
+\def\TheSPPiratiningaTitle{Preceptório de Cavaleiros Templários}%
+%
+\definecolor{ColorSPPiratininga}{rgb}{.60,.00,.00}% ( 153, 0, 0 )
+%
+\def\TheSPPiratiningaHeader{%
+	\textcolor{ColorSPPiratininga}{\singlespace%
+		{\fontsize{14}{1}\fontfamily{pbk}\selectfont\TheSPPiratiningaTitle\vskip 9pt}%
+		{\fontsize{18}{1}\fontfamily{pbk}\selectfont\TheSPPiratiningaName\vskip 9pt}%
+		{\fontsize{11}{1}\fontfamily{pbk}\selectfont Subordinado ao \TheGPBName\vskip 1pt}%
+	}%
+}%
+%
+\def\ps@PapelTimbradoSPPiratininga{%
+	\renewcommand{\@oddhead}{%
+		\noindent%
+		\if@timbreimage%
+		\parbox[c]{18mm}{\vskip 0mm\hskip -10mm \TheSPPiratiningaImage}%
+		\parbox{\textwidth-20mm}{{\centering\TheSPPiratiningaHeader\par}}%
+		\else%
+		\parbox{\textwidth}{{\centering\TheSPPiratiningaHeader}}%
+		\fi%
+	}%
+	\let\@evenhead\@empty%
+	\renewcommand{\@oddfoot}{%
+		\noindent%
+		\begin{minipage}{\textwidth}%
+			\begin{center}%
+				\thepage%
+			\end{center}%
+		\end{minipage}%
+	}%
+	\let\@evenfoot\@oddfoot%
+	%
+	\color{ColorSPPiratininga}%
+%
+}%
+%
+
 %------------------------------------------------------------------------------
 %
 %   This Declaration Section will be always the last configurations line.
@@ -780,6 +832,13 @@ Irmão\if\ThePlural#1{s}\fi%
 	\def\TheDefaultSalutation{\HigherDegreeSalutation{\TheDivisaConsistorio}}%
 	\def\TheDefaultLocation{Acampamento}%%
 }%
+%
+\DeclareOption{preceptorio}{%%
+	\setlength{\freemasonryTopMargin}{40mm}%%%
+	\pagestyle{PapelTimbradoSPPiratininga}%%
+	\def\TheDefaultSalutation{}%
+	\def\TheDefaultLocation{}%%
+}%%
 %
 
 %   This instruction is the last configuration line.
