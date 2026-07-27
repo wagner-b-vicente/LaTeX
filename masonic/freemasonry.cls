@@ -427,7 +427,6 @@ Irmão\if\ThePlural#1{s}\fi%
 %   #1  - Salutation description
 %------------------------------------------------------------------------------
 \def\HigherDegreeSalutation#1{\noindent\centerline{\aspas{\sc #1}}}%
-
 %
 \def\TheDeusMeumqueJus{Deus Meumque Jus}%
 %
@@ -443,7 +442,8 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\TheDivisaCapitulo{Lux ex Tenebris}%
 %
-
+\def\TheExtraAUTOSAG{\LetterExpander[12]{A\threeDots U\threeDots T\threeDots O\threeDots S\threeDots A\threeDots G\threeDots}}%
+%
 %------------------------------------------------------------------------------
 %
 %   Page Style Declaration for all Lodges
@@ -641,8 +641,6 @@ Irmão\if\ThePlural#1{s}\fi%
 %   Higher Degree - Conselho Filosófico de Cavaleiros Kadosh - JOSÉ CACCÁOS
 %
 %------------------------------------------------------------------------------
-\def\TheExtraAUTOSAG{\SM{A\kern 6pt .\kern 6pt U\kern 6pt .\kern 6pt T\kern 6pt .\kern 6pt O\kern 6pt .\kern 6pt S\kern 6pt .\kern 6pt A\kern 6pt .\kern 6pt G\kern 6pt .}}%
-
 \def\TheJoseCaccaosImage{\includegraphics[width=34mm]{kadosh-jose-caccaos.png}}%
 %
 \def\TheJoseCaccaosTitle{Venerando Ilustre Conselho Filosófico de Cavaleiros Kadosch}%
