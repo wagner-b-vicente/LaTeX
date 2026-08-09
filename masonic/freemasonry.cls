@@ -279,7 +279,6 @@
 %   #2  - Degree number
 %------------------------------------------------------------------------------
 \def\TheMasonicTreatmentPronoun#1#2{%
-\if#2M\else%
   \ifnum#2>18%
     \ifnum#2>32%
       Poderoso\if\ThePlural#1{s}\fi~%
@@ -295,7 +294,6 @@
       \fi%
     \fi%
   \fi%
-\fi%
 Irmão\if\ThePlural#1{s}\fi%
 }%
 
@@ -306,13 +304,11 @@ Irmão\if\ThePlural#1{s}\fi%
 %------------------------------------------------------------------------------
 \def\TheDegreeAcronyms#1{%
 % \ifnum#1=33$\vcenter{\hbox{\includegraphics[scale=0.12]{Pin33.png}}}$\else%
-  \if#1M\SM{M.M.}\else%
     \ifnum#1=1\SM{A.M.}\else%
       \ifnum#1=2\SM{C.M.}\else%
         \ifnum#1=3\SM{M.M.}\else\SM{#1.}\fi%
       \fi%
     \fi%
-  \fi%
 }%
 
 %
