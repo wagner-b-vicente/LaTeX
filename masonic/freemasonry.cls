@@ -302,13 +302,13 @@ Irmão\if\ThePlural#1{s}\fi%
 %   Input parameters:
 %   #1  - Degree number
 %------------------------------------------------------------------------------
-\def\TheDegreeAcronyms#1{%
 % \ifnum#1=33$\vcenter{\hbox{\includegraphics[scale=0.12]{Pin33.png}}}$\else%
-    \ifnum#1=1\SM{A.M.}\else%
-      \ifnum#1=2\SM{C.M.}\else%
-        \ifnum#1=3\SM{M.M.}\else\SM{#1.}\fi%
-      \fi%
-    \fi%
+\def\TheDegreeAcronyms#1{%
+  \ifnum#1=1\SM{A.M.}\else%
+    \ifnum#1=2\SM{C.M.}\else%
+	  \ifnum#1=3\SM{M.M.}\else\SM{#1.}\fi%
+	\fi%
+  \fi%
 }%
 
 %
