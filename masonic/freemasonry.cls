@@ -155,7 +155,7 @@
 
 \def\diaCardinal{%
   \ifcase\dia\or um\or dois\or três\or quatro\or cinco\or seis\or sete\or oito\or nove\or dez%
-  \or onze\or doze\or treze\or quatorze\or quinze\or dezesseis\or dezesete\or dezoito\or dezenove\or vinte%
+  \or onze\or doze\or treze\or quatorze\or quinze\or dezesseis\or dezessete\or dezoito\or dezenove\or vinte%
   \or vinte e um\or vinte e dois\or vinte e três\or vinte e quatro\or vinte e cinco\or vinte e seis%
   \or vinte e sete\or vinte e oito\or vinte e nove\or trinta\or trinta e um\or dia inválido\fi%
 }%
