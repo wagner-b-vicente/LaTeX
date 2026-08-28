@@ -450,7 +450,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %   Symbolic Lodge - APOSTOLOS PAULISTAS
 %
 %------------------------------------------------------------------------------
-\def\TheApostolosPaulistasAcron{\SM{Aug.~e Resp.~Benem.~Loj.~Simb.}}%
+\def\TheApostolosPaulistasAcron{\SM{Aug.~ e Resp.~ Benem.~ Loj.~ Simb.}}%
 %
 \def\TheApostolosPaulistasName{Apóstolos Paulistas}%
 %
@@ -466,7 +466,7 @@ Irmão\if\ThePlural#1{s}\fi%
 %
 \def\TheApostolosPaulistasHeader{%
 	{\fontsize{12}{1}\selectfont%
-		\TheApostolosPaulistasAcron~\TheApostolosPaulistasName~-~\TheApostolosPaulistasNumber%
+		\TheApostolosPaulistasAcron~ \TheApostolosPaulistasName~ - ~\TheApostolosPaulistasNumber%
 	}\vskip 5mm%
 	{\fontsize{10}{1}\selectfont%
 		Filiada ao Grande Oriente Paulista (\negrito{GOP}),\vskip 1.5mm%
