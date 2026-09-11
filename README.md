@@ -1,6 +1,6 @@
 # My LaTeX !
 
-## Actual version : 2.0.0 at jan, 27 2025
+## Actual version : 2.0.0 at set, 11 2026
 
 My repository to keep my files $\TeX$.
 
@@ -48,7 +48,7 @@ Structure for the works of the Masonic Lodge.
 
 >`# cd /usr/share/texmf/tex/latex`
 >
->`# sudo ln -s /home/wagner/GitHub/LaTeX/masonic`
+>`# sudo ln -s /home/wagner/GitHub/LaTeX/masonry`
 
 ## XString
 

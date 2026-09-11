@@ -1,6 +1,26 @@
-# FREEMASONRY Class Documentation
+# MASON DOCUMENTATION
 
-## Actual version : 1.0.0 at jan, 27 2025
+## Actual version : 2.0.0 at set, 11 2026
+
+# Page Styles
+
+Para cada loja maçônica, simbólica ou altos graus, que tenha um cabeçalho e rodapé definido, foi criado um `pagestyle`.
+
+Para facilitar a chamada de uma determinada `pagestyle` foram definidas opções de declaração da classe `freemasonry.sty`, a saber:
+
+* `arlsap` -- Loja Simbólica "Apóstolos Paulistas"
+
+* `arlsdjf` -- Loja Simbólica "Danylo José Fernandes"
+
+* `sccrcrb` -- Capítulo "Ricardo Bloise"
+
+* `kadoshjc` -- Kadosch "José Caccáos"
+
+* `consistorio` -- Consistório "Pitágoras"
+
+* `preceptorio` -- Preceptório de Cavaleiros Templários "São Paulo de Piratininga"
+
+Adicionada a esta opção de definição do Corpo Maçônico foi criado a opção de declaração `timbre`. sendo esta um opção que quando declarado exibirá no cabeçalho o timbro ou logotipo do corpo, caso contrário, ou seja, não seja declarado o timbre não será exibido.
 
 ## How to use
 
@@ -30,7 +50,7 @@ The line spacing : [ singlespacing, onehalfspacing, doublespace ]
 
 ### 3rd Option
 
-Header and footer defines : [ arlsap, arlsdjf, sccrcrb, kadoshjc, consistorio ]
+Header and footer defines : [ arlsap, arlsdjf, sccrcrb, kadoshjc, consistorio, preceptorio ]
 
 ### 4th Option
 
@@ -39,27 +59,102 @@ Conditional to add or not the logo in the header : [ timbre ]
 > [!IMPORTANT]
 > On line 02, the declaration of the *`graphicspath`* command is mandatory.
 
+# Masonry's Function
 
-## Page Styles
+## \SM#1
+
+A Sigla Maçõnica (SM) receberá um único parâmetro que será a sigla a ser impressa.
+
+**OBSERVAÇÃO :** a sigla deve usar o caracter '.' para indicar onde ficará os três pontos maçônicos.
+
+```
+\SM{Ven.M.} é o \SM{Ir.} ...
+...
+Ven$\therefore$M$\therefore$ é o Ir$\therefore$ ...
+```
+
+## \TheMasonicTreatmentPronoun[#1]{#2}
+
+O primeiro parâmetro define "[s]ingular" ou "[p]lural".
+
+O segundo parâmetro usa o número do grau para definir o pronome de tratamento maçônico.
+
+``\TheMasonicTreatmentPronoun{s}{3}``
+
+``Venerável Irmão``
+
+``\TheMasonicTreatmentPronoun{p}{14}``
+
+``Respeitáveis Irmãos``
+
+## \TheDegreeAcronyms#1
+
+O parâmetro de input é o Grau o qual retornará a sua respectiva Sigla
+
+`\TheDegreeAcronyms{1}`
+
+`A.M.`
 
 
-Para cada loja maçônica, simbólica ou altos graus, que tenha um cabeçalho e rodapé definido, foi criado um `pagestyle`.
+`\TheDegreeAcronyms{2}`
 
-Para facilitar a chamada de uma determinada `pagestyle` foram definidas opções de declaração da classe `freemasonry.cls`, a saber:
+`C.M.`
 
-* `arlsap` -- Loja Simbólica "Apóstolos Paulistas"
 
-* `arlsdjf` -- Loja Simbólica "Danylo José Fernandes"
+`\TheDegreeAcronyms{3}` ou `\TheDegreeAcronyms{M}`
 
-* `sccrcrb` -- Capítulo "Ricardo Bloise"
+`M.M.`
 
-* `kadoshjc` -- Kadosch "José Caccáos"
 
-* `consistorio` -- Consistório "Pitágoras"
+`\TheDegreeAcronyms{4}` até `\TheDegreeAcronyms{33}`
 
-Adicionada a esta opção de definição do Corpo Maçônico foi criado a opção de declaração `timbre`. sendo esta um opção que quando declarado exibirá no cabeçalho o timbro ou logotipo do corpo, caso contrário, ou seja, não seja declarado o timbre não será exibido.
+Retornará o próprio número informado.
 
-# Definições não maçônicas
+## \TheREAADegreeFullName#1
+
+O parâmetro de input é o Grau o qual retornará o nome (ou descrição).
+
+``\TheREAADegreeFullName{4}``
+
+`Mestre Secreto`
+
+## \Ir[#1]{#2}
+
+Os parâmetros de input são:
+
+* o Grau do Irmão
+
+* o Código do Irmão definido no acrônimo.
+
+``\Ir[13]{555}``
+
+``Respeitável Irmão Fulano de Tal, 13``
+
+## \Ir*[#1]{#2}
+
+Os parâmetros de input são:
+
+* o Grau do Irmão
+
+* o Texto literal a ser apresentado.
+
+``\Ir[18]{Outro Irmão}``
+
+``Respeitável Irmão Outro Irmão, 18``
+
+## \IIr[#1]{#2}
+
+Os parâmetros de input são:
+
+* o Grau dos Irmãos
+
+* uma lista de  Códigos dos Irmãos, definido no acrônimo, separados por vírgula.
+
+``\IIr[30]{555,333}``
+
+``Mui Respeitáveis Irmãos Fulano de Tal 30 e Enrolando Relo 30``
+
+# Non Masonry's Function
 
 Agora teremos uma definição para dia, mês e ano de modo a facilitar e centralizar construções de data
 
@@ -146,78 +241,16 @@ Esta definição em estágio de desenvolvimento deve receber duas opições, sen
 ### 2nd option: word or string
 
 ```
+\LetterExpander[1]{Teste}
+...
+Teste
+...
 \LetterExpander[6]{Teste}
 ...
 T e s t e
 ...
 \LetterExpander[12]{teste}
 ...
-T  e  s  t  e
+T   e   s   t   e
 ...
 ```
-
-# Definições maçônicas
-
-## \SM#1
-
-O único parâmetro que esta definição recebe é a própria sigla maçônica a ser impressa.
-
-**OBSERVAÇÃO :** a sigla deve usar o caracter '.' para indicar onde ficará os três pontos maçônicos.
-
-```
-\SM{Ven.M.} é o \SM{Ir.} ...
-...
-Ven$\therefore$M$\therefore$ é o Ir$\therefore$ ...
-```
-
-## \TheMasonicTreatmentPronoun[#1]{#2}
-
-O primeiro parâmetro define "[s]ingular" ou "[p]lural".
-
-O segundo parâmetro usa o número do grau para definir o pronome de tratamento maçônico.
-
-``\TheMasonicTreatmentPronoun{s}{3}``
-
-``Venerável Irmão``
-
-``\TheMasonicTreatmentPronoun{p}{14}``
-
-``Respeitáveis Irmãos``
-
-## \TheREAADegreeFullName#1
-
-O parâmetro de input é o Grau o qual retornará o nome (ou descrição).
-
-``\TheREAADegreeFullName{4}``
-
-`Mestre Secreto`
-
-## \Ir[#1]{#2} e \Ir*[#1]{#2}
-
-### Os parâmetros de input são:
-
-* o Grau do Irmão
-
-* o Código do Irmão definido no acrônimo.
-
-``\IrFil[13]{555}``
-
-``Respeitável Irmão Fulano de Tal 13``
-
-### A segunda definição deverá ser usada quando não existe um acronimo definido.
-
-``\IrFil[2]{QQ Coisa que digitar aqui escreverá lá}``
-
-``Irmão QQ Coisa que digitar aqui escreverá lá, C.M.``
-
-## \IIr[#1]{#2}
-
-Os parâmetros de input são:
-
-* o Grau dos Irmãos
-
-* uma lista de  Códigos dos Irmãos, definido no acrônimo, separados por vírgula.
-
-``\IIr[30]{555,333}``
-
-``Mui Respeitáveis Irmãos Fulano de Tal 30 e Enrolando Relo 30``
